@@ -1,3 +1,15 @@
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 100vh;
+  grid-template-areas:
+    "m m c c c c c c c c c c";
+}
+
+.menu {
+  grid-area: m;
+}
+
+.content {
+  grid-area: c;
 }

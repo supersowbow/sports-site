@@ -1,7 +1,7 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "homepage": "supersowbow.github.io/sports-site",
+  "homepage": "https://supersowbow.github.io/sports-site/",
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",

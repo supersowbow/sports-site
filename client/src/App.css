@@ -1,36 +1,7 @@
 .App {
+  height: 100vh;
+  border: solid red 10px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 100vh;
-  grid-template-areas:
-    "m m m m m m m m m m c c";
-}
-
-.menu {
-  grid-area: m;
-}
-
-.content {
-  grid-area: c;
-  background-color: lightblue;
-}
-
-/* MEDIA QUERIES */
-@media screen and (min-width: 900px) {
-  .App {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 100vh;
-    grid-template-areas:
-      "m m m c c c c c c c c c";
-  }
-
-  .menu {
-    grid-area: m;
-  }
-
-  .content {
-    grid-area: c;
-    background-color: lightblue;
-  }
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 100vh;
 }

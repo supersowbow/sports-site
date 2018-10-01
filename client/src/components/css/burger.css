@@ -1,0 +1,17 @@
+/* Burger Button */
+.burger-container {
+  justify-self: center;
+}
+
+.burger-button {
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+
+/* MEDIA QUERIES FOR LARGER SCREENS
+@media screen and (min-width: 700px) {
+  .burger-container {
+    display: none;
+  }
+}
+*/

@@ -1,6 +1,6 @@
 .content {
   padding: 10px;
-  background-color: lightblue;
+  background-color: #D0D1D3;
   transition: margin-left .5s;
   grid-area: c;
   display: grid;

@@ -1,6 +1,6 @@
 .App {
   height: 100vh;
-  border: solid red 10px;
+  /* border: solid red 10px; */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 100vh;

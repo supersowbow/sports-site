@@ -7,54 +7,35 @@ import './App.css';
 
 class App extends Component {
   // create state
-  state = {
-    isOpen: false,
-  }
-
-  // by default on small screens, the menu will be display: none
+  state = {}
 
   // create a click event handler for the burger button
-  handleShowSideBar = () => {
-    /* when the burger button is clicked:
-      1.  On Burger Component, remove class show-burger-component, add class hide-burger-component.
-      2.  On App Component, remove class default-App, add class App
-      3.  On Sidebar Component, remove class sidebar-closed, add class sidebar-opened
-      4.  The sidebar menu will smoothly transition from left to right on the screen.
-    */
-    // document.getElementById("BurgerButton-Component")
-    //   .classList.remove('show-burger-container');
-    // document.getElementById("BurgerButton-Component")
-    //   .classList.add('hide-burger-container');
-    //
-    // document.getElementById("App-Component")
-    //   .classList.remove('default-App');
-    // document.getElementById("App-Component")
-    //   .classList.add('App');
-    //
-    // document.getElementById("Sidebar-Component")
-    //   .classList.remove('sidebar-closed');
-    // document.getElementById("Sidebar-Component")
-    //   .classList.add('sidebar-opened');
+  handleOpenSidebar = (e) => {
+    e.preventDefault();
 
-    document.getElementById('Sidebar-Component').classList.toggle('active');
-    //document.getElementById('content-container').classList.toggle('active');
-  };
+    // Adds a smooth transition to the Sidebar component while it's entering
+    document.getElementById("Burger-Component").classList.add("hide");
+    document.getElementById("sidebar-container").style.width = "250px";
+    document.getElementById("mainContainer").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  }
 
-  // create an event handler for the cross toggle button
-    /* when the cross button is clicked, the sidebar
-    menu will transition from right to left, disappearing
-    from the screen. The burger button will have display: block?.
-    The sidebar will have a display: none.
-    */
+  handleCloseSidebar = (e) => {
+      e.preventDefault();
 
-  // When cross button is clicked, the grid-template-areas should be updated
-    //class called "menu-closed", grid-template-areas:". c c c c c c c c c c c";
-    // a burger menu will be in place of the dot on grid-areas
+      // Adds a smooth transition to the Sidebar component while it's exiting
+      document.getElementById("Burger-Component").classList.remove("hide");
+      document.getElementById("sidebar-container").style.width = "0px";
+      document.getElementById("mainContainer").style.marginLeft = "0px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0)";
+  }
+
   render() {
     return (
       <div id="App-Component" className="App">
-        <SidebarContainer />
-        <MainContainer />
+        <SidebarContainer
+            closeSidebar={this.handleCloseSidebar} />
+        <MainContainer openSidebar={this.handleOpenSidebar} />
       </div>
     );
   }

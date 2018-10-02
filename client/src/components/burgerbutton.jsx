@@ -5,14 +5,14 @@ import './css/burger.css';
 
 const BurgerButton = (props) => {
   return (
-    <div id="BurgerButton-Component" className="burger-container">
-      {/* Burger Button */}
-      <span className="burger-button" onClick={props.showSideBar}>
-        <NavLink to='/'>
-          <i class="fa fa-bars"></i>
-        </NavLink>
-      </span>
-      {/* End of Burger Button */}
+    <div id="Burger-Component"
+         className="burger-container"
+         onClick={props.openSidebar}>
+          <span className="burger-button">
+            <NavLink to='/'>
+              <i className="fa fa-bars"></i>
+            </NavLink>
+          </span>
     </div>
   );
 };

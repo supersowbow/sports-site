@@ -4,10 +4,12 @@ import Sidebar from './sidebar.jsx';
 
 import './css/sidebarContainer.css';
 
-const SidebarContainer = () => {
+const SidebarContainer = (props) => {
   return (
-    <div className="sidebar-container">
-      <Sidebar />
+    <div id="sidebar-container"
+         className="sidebar-container
+                    sidebar-closed">
+         <Sidebar closeSidebar={props.closeSidebar}/>
     </div>
   );
 };

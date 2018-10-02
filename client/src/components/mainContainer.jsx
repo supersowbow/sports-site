@@ -10,10 +10,10 @@ import Articles from './/articles.jsx';
 
 import './css/mainContainer.css';
 
-const MainContainer = () => {
+const MainContainer = (props) => {
   return (
-    <div className="main-container">
-      <BurgerButton showSideBar={this.handleShowSideBar}/>
+    <div id="mainContainer" className="main-container toggle-closed">
+      <BurgerButton openSidebar={props.openSidebar}/>
       {/* Wrap the CSS Transition Group in React Transition Group*/}
       {/* Wrap the Switch in CSS Transition Group */}
       <Switch>

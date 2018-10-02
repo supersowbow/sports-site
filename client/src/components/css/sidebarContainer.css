@@ -1,7 +1,19 @@
 .sidebar-container {
-  border: solid blue 6px;
+    /* border: solid blue 6px; */
 
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-rows: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+
+    box-shadow: 10px 0 5px -2px #888;
+    opacity: 0.9;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #040D14;
+    overflow-x: hidden;
+    transition: 0.5s;
 }

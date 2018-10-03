@@ -9,9 +9,7 @@ const BurgerButton = (props) => {
          className="burger-container"
          onClick={props.openSidebar}>
           <span className="burger-button">
-            <NavLink to='/'>
-              <i className="fa fa-bars"></i>
-            </NavLink>
+            <i className="fa fa-bars"></i>
           </span>
     </div>
   );

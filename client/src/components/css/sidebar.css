@@ -46,8 +46,36 @@
 .sidebar-links-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, 2fr);
+  grid-template-rows: repeat(7, 2fr);
+  grid-template-areas:
+      "."
+      "h"
+      "a"
+      "s"
+      "t"
+      "x";
 }
+
+.home-sidebar-item {
+    grid-area: h;
+}
+
+.about-sidebar-item {
+    grid-area: a;
+}
+
+.signup-sidebar-item {
+    grid-area: s;
+}
+
+.testimonial-sidebar-item {
+    grid-area: t;
+}
+
+.articles-sidebar-item {
+    grid-area: x;
+}
+
 
 ul {
   padding-left: 0;
@@ -56,15 +84,18 @@ ul {
 
 ul li {
   list-style-type: none;
+  place-self: center;
+  padding-bottom: 10px;
 }
 
 li a {
   text-decoration: none;
   padding: 20px 60px;
-  color: #FFFFFF;
+  color: white;
 }
 
-.center {
-  place-self: center;
+ul li a:hover {
+    background-color: #21ce99;
+    /* opacity: 0.7; */
 }
 /* End of Sidebar Links Container and Sidebar Links */

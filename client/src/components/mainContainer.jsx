@@ -14,8 +14,6 @@ const MainContainer = (props) => {
   return (
     <div id="mainContainer" className="main-container toggle-closed">
       <BurgerButton openSidebar={props.openSidebar}/>
-      {/* Wrap the CSS Transition Group in React Transition Group*/}
-      {/* Wrap the Switch in CSS Transition Group */}
       <Switch>
           {/* React Routes */}
           <Route exact path='/' component={Home} />

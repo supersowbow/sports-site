@@ -1,4 +1,4 @@
-.sidebar-container {
+#sidebar-container {
     /* border: solid blue 6px; */
 
     display: grid;
@@ -17,3 +17,9 @@
     overflow-x: hidden;
     transition: 0.5s;
 }
+
+/* MEDIA QUERIES
+@media and screen(min-width: 900px) {
+
+}
+*/

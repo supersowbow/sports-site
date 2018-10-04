@@ -14,6 +14,7 @@ const largeScreenDesign = (screenW, stylesAdded) => {
     const sidebar = document.getElementById("sidebar-container");
     const cross_button = document.getElementById("cross-button");
 
+    // eslint-disable-next-line
     screenW.matches ?
     (
         main.style.marginLeft = "250px",

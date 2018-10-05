@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Sidebar from './sidebar.jsx';
+import Sidebar from '../Sidebar/sidebar.jsx';
 
-import './css/sidebarContainer.css';
+import './sidebarContainer.css';
 
 const SidebarContainer = (props) => {
   return (

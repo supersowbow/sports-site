@@ -1,0 +1,17 @@
+.home-content-container {
+  /* border: solid black 2px; */
+  /* grid-column: 1 / -1;
+  grid-row: 3 / -1; */
+  grid-area: c;
+
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+}
+
+.home-logo {
+  width: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1 / 9;
+  background-color: #FFFFFF;
+}

@@ -13,18 +13,21 @@ const largeScreenDesign = (screenW, stylesAdded) => {
     const main = document.getElementById("mainContainer");
     const sidebar = document.getElementById("sidebar-container");
     const cross_button = document.getElementById("cross-button");
+    const burger_button = document.getElementById("burger-button");
 
     // eslint-disable-next-line
     screenW.matches ?
     (
         main.style.marginLeft = "250px",
         sidebar.style.width = "250px",
-        cross_button.style.display = "none"
+        cross_button.style.display = "none",
+        burger_button.style.display = "none"
     ) :
     (
         main.style.marginLeft = "0px",
         sidebar.style.width = "0px",
-        cross_button.style.display = "inline"
+        cross_button.style.display = "inline",
+        burger_button.style.display = "grid"
     );
 };
 /******************************************************

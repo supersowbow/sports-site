@@ -1,19 +1,19 @@
 import React from 'react';
 import { Switch, Route} from 'react-router-dom';
 
-import BurgerButton from './burgerbutton.jsx'
-import Home from './home.jsx';
-import About from './about.jsx';
-import Testimonial from './testimonial.jsx';
-import Signup from './signup.jsx';
-import Articles from './/articles.jsx';
+import Header from '../Header/header.jsx';
+import Home from '../Home/home.jsx';
+import About from '../About/about.jsx';
+import Testimonial from '../Testimonial/testimonial.jsx';
+import Signup from '../Signup/signup.jsx';
+import Articles from '../Articles/articles.jsx';
 
-import './css/mainContainer.css';
+import './mainContainer.css';
 
 const MainContainer = (props) => {
   return (
     <div id="mainContainer" className="main-container toggle-closed">
-      <BurgerButton openSidebar={props.openSidebar}/>
+      <Header openSidebar={props.openSidebar}/>
       <Switch>
           {/* React Routes */}
           <Route exact path='/' component={Home} />

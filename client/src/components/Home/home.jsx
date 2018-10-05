@@ -1,11 +1,13 @@
 import React from 'react';
 
-import './css/home.css';
+import './home.css';
 
 const Home = () => {
   return (
     <div className="main home-content-container">
-      <h1>Home</h1>
+      <img className="home-logo" 
+           alt="camp logo"
+           src={require("../../img/camplogo.svg")}/>
     </div>
   );
 };

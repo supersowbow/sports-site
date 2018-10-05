@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
-import './css/sidebar.css';
+import './sidebar.css';
 
 
 const Sidebar = (props) => {
@@ -12,7 +12,7 @@ const Sidebar = (props) => {
       <div className="sidebar-header">
         <NavLink to='/' activeClassName='logo'>
           <img
-              src="https://via.placeholder.com/180x180"alt="logo"
+              src="https://via.placeholder.com/180x180" alt="logo"
           />
         </NavLink>
         <a href="/"

@@ -13,7 +13,7 @@ const largeScreenDesign = (screenW, stylesAdded) => {
     const main = document.getElementById("mainContainer");
     const sidebar = document.getElementById("sidebar-container");
     const cross_button = document.getElementById("cross-button");
-    const burger_button = document.getElementById("burger-button");
+    const burger_button = document.getElementById("burger");
 
     // eslint-disable-next-line
     screenW.matches ?
@@ -21,7 +21,8 @@ const largeScreenDesign = (screenW, stylesAdded) => {
         main.style.marginLeft = "250px",
         sidebar.style.width = "250px",
         cross_button.style.display = "none",
-        burger_button.style.display = "none"
+        burger_button.style.display = "none",
+        document.body.style.backgroundColor = "rgba(0,0,0,0)"
     ) :
     (
         main.style.marginLeft = "0px",

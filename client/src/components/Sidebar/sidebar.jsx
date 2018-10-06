@@ -12,8 +12,8 @@ const Sidebar = (props) => {
       <div className="sidebar-header">
         <NavLink to='/' activeClassName='logo'>
           <img
-              src="https://via.placeholder.com/180x180" alt="logo"
-          />
+              src={require('../../img/sidebar_logo.png')}
+              alt="Pat Gavin's Basketball Fundamentals Camp Logo"/>
         </NavLink>
         <a href="/"
            id="cross-button"
@@ -23,6 +23,8 @@ const Sidebar = (props) => {
         </a>
       </div>
       {/* End of Menu Header */}
+
+      <div className="hr"></div>
 
       {/* React Router NavLinks */}
       <ul className="sidebar-links-container">

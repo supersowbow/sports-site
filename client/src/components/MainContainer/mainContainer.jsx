@@ -7,6 +7,7 @@ import About from '../About/about.jsx';
 import Testimonial from '../Testimonial/testimonial.jsx';
 import Signup from '../Signup/signup.jsx';
 import Articles from '../Articles/articles.jsx';
+import Footer from '../Footer/footer.jsx';
 
 import './mainContainer.css';
 
@@ -23,6 +24,7 @@ const MainContainer = (props) => {
           <Route path='/articles' component={Articles} />
           {/* End of React Routes */}
       </Switch>
+      <Footer />
     </div>
   );
 };

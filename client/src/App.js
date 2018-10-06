@@ -14,17 +14,15 @@ class App extends Component {
     e.preventDefault();
 
     // Adds a smooth transition to the Sidebar component while it's entering
-    document.getElementById("Header-Component").classList.add("hide");
     document.getElementById("sidebar-container").style.width = "250px";
     document.getElementById("mainContainer").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
   }
 
   handleCloseSidebar = (e) => {
       e.preventDefault();
 
       // Adds a smooth transition to the Sidebar component while it's exiting
-      document.getElementById("Header-Component").classList.remove("hide");
       document.getElementById("sidebar-container").style.width = "0px";
       document.getElementById("mainContainer").style.marginLeft = "0px";
       document.body.style.backgroundColor = "rgba(0,0,0,0)";

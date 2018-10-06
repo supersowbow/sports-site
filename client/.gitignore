@@ -1,13 +1,13 @@
 # Client
 
 # dependencies
-/client/node_modules
+/node_modules
 
 # testing
-/client/coverage
+/coverage
 
 # production
-/client/build
+/build
 
 # misc
 .DS_Store

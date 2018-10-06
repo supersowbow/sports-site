@@ -4,10 +4,14 @@ import './home.css';
 
 const Home = () => {
   return (
-    <div className="main home-content-container">
-      <img className="home-logo" 
-           alt="camp logo"
-           src={require("../../img/camplogo.svg")}/>
+    <div className="home-content-container">
+      <div className="home-logo">
+        <img alt="Pat Gavin's Basketball Fundamentals Camp Logo"
+             src={require('../../img/camplogo.jpg')}/>
+      </div>
+      <div className="pitch">
+        <h1>We are great!</h1>
+      </div>
     </div>
   );
 };

@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
-import './sidebar.css';
 
+import './sidebar.css';
 
 const Sidebar = (props) => {
   return (

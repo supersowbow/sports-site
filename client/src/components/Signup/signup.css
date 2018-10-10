@@ -1,3 +1,29 @@
-.signup-content-container {
+.signup-container {
   /* border: solid black 2px; */
+}
+
+.label {
+
+}
+
+.border {
+
+}
+/* #b3b3b3 grayish
+   #ff7f00 blue
+*/
+
+
+input {
+    border: none;
+    border-bottom: 2px solid #b3b3b3;
+}
+
+input:focus {
+    border-bottom: 2px solid #ff7f00;
+    transition: 0.5s;
+}
+
+input[type=submit] {
+    cursor: pointer;
 }

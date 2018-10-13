@@ -7,7 +7,9 @@ import './App.css';
 
 class App extends Component {
   // create state
-  state = {}
+  state = {
+      numOfKids: 1,
+  }
 
   // create a click event handler for the burger button
   handleOpenSidebar = (e) => {
@@ -28,12 +30,23 @@ class App extends Component {
       document.body.style.backgroundColor = "rgba(0,0,0,0)";
   }
 
+  // create a click event handler for the increment button on <Child />
+  handleIncrement = (e) => {
+      e.preventDefault();
+
+      this.setState = {
+          numOfKids: this.state.numOfKids ++,
+      };
+  }
+
   render() {
     return (
       <div id="App-Component" className="App">
         <SidebarContainer
             closeSidebar={this.handleCloseSidebar} />
-        <MainContainer openSidebar={this.handleOpenSidebar} />
+        <MainContainer openSidebar={this.handleOpenSidebar}
+                       incrementButton={this.handleIncrement}
+                       numberOfKids={this.state.numOfKids} />
       </div>
     );
   }

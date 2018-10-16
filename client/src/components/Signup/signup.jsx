@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 
+import Child from './child.jsx';
+
 import './signup.css';
 
 class SignupForm extends Component {
@@ -226,3 +228,4 @@ class SignupForm extends Component {
 }
 
 export default SignupForm;
+

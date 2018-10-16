@@ -1,5 +1,6 @@
 .signup-container {
   /* border: solid black 2px; */
+<<<<<<< HEAD
   grid-area: c;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -32,15 +33,97 @@ input {
     grid-column: 1 / -1;
     border: none;
     border-bottom: 2px solid #b3b3b3;
+=======
+  /* grid-column: 2 / 11; */
+  grid-area: c;
+  place-self: center;
+
+  background-color: ;
+  box-shadow: 0 0 8px #888888;
+  padding: 10px 20px;
+  margin-top: 15px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+  max-width: 80%;
+  border-radius: 4px;
 }
 
-input:focus {
-    border-bottom: 2px solid #ff7f00;
-    transition: 0.5s;
+.form-header {
+  padding-bottom: 10px;
+}
+
+.form-elements,
+.name,
+.email,
+.number {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.name label,
+.email label,
+.number label {
+  font-size: 16px;
+  color: #b3b3b3;
+  top: -30px;
+  left: 0;
+  margin-bottom: 10px;
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.name input,
+.email input,
+.number input {
+  display: block;
+  padding: 10px;
+  position: relative;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #b3b3b3;
+  z-index: 2;
+  /* transition: border-bottom 0.1s ease; */
+}
+
+input:focus,
+input:valid {
+  border-bottom: 2px solid #ff7f00;
+  outline: none;
+>>>>>>> 03ae10df9341a19c6968329bebf04d6ef331bc79
+}
+
+input:focus + label,
+input:valid + label {
+  top: -65px;
+  font-size: 14px;
+  color: #00275e;
 }
 
 input[type=submit] {
-    cursor: pointer;
+  cursor: pointer;
+  width: 40%;
+  padding: 10px;
+  background-color: #007bff;
+  border-bottom: none;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.child-list {
+    padding: 0;
+}
+
+/* .child-list li:nth-child(1) {
+    border-top: none;
+} */
+
+.child-list li {
+    padding-top: 15px;
+    border-top: 2px dashed;
 }
 
 .submit-button {

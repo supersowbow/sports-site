@@ -8,7 +8,11 @@ import './App.css';
 class App extends Component {
   // create state
   state = {
+<<<<<<< HEAD
     
+=======
+      numOfKids: 1,
+>>>>>>> 03ae10df9341a19c6968329bebf04d6ef331bc79
   }
 
   // create a click event handler for the burger button
@@ -23,11 +27,30 @@ class App extends Component {
 
   handleCloseSidebar = (e) => {
       e.preventDefault();
+      
+      // store viewport width in variable
+      let viewWidth = window.innerWidth >= 900 ? true : false;
 
-      // Adds a smooth transition to the Sidebar component while it's exiting
-      document.getElementById("sidebar-container").style.width = "0px";
-      document.getElementById("mainContainer").style.marginLeft = "0px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0)";
+      // if viewport width is >= 900px, sidebar should not close
+      if (viewWidth) {
+        return;
+      } else {
+          // else (the screen is small), close sidebar
+          // Adds a smooth transition to the Sidebar component while it's exiting
+          document.getElementById("sidebar-container").style.width = "0px";
+          document.getElementById("mainContainer").style.marginLeft = "0px";
+          document.body.style.backgroundColor = "rgba(0,0,0,0)";
+      }
+  }
+
+  // create a click event handler for the increment button on <Child />
+  handleIncrement = (e) => {
+      e.preventDefault();
+      let kids = this.state.numOfKids;
+
+      this.setState = {
+          numOfKids: kids ++,
+      };
   }
 
   render() {
@@ -35,7 +58,9 @@ class App extends Component {
       <div id="App-Component" className="App">
         <SidebarContainer
             closeSidebar={this.handleCloseSidebar} />
-        <MainContainer openSidebar={this.handleOpenSidebar} />
+        <MainContainer openSidebar={this.handleOpenSidebar}
+                       incrementButton={this.handleIncrement}
+                       numberOfKids={this.state.numOfKids} />
       </div>
     );
   }

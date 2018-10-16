@@ -43,7 +43,7 @@ const Child = (props) => {
                         className="shirt-sizes" 
                         value={props.shirtValue}
                         onChange={props.handleShirtSizeChange}>
-                    <option selected disabled>Size</option>
+                    <option disabled>Size</option>
                     <option value="small">S</option>
                     <option value="medium">M</option>
                     <option value="large">L</option>

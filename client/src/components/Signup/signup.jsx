@@ -103,6 +103,7 @@ class SignupForm extends Component {
         console.log(FORM_DATA);
         console.log('BITCH');
 
+        // FIX THIS:  POST REQUEST!!!!
         let postData = (url = `http:localhost:8080/form`, data = {...FORM_DATA}) => {
             return fetch(url, {
                 method: "POST", // *GET, POST, PUT, DELETE, etc.

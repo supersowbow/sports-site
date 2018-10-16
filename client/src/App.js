@@ -7,7 +7,9 @@ import './App.css';
 
 class App extends Component {
   // create state
-  state = {}
+  state = {
+    
+  }
 
   // create a click event handler for the burger button
   handleOpenSidebar = (e) => {

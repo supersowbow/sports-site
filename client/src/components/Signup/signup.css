@@ -1,20 +1,35 @@
 .signup-container {
   /* border: solid black 2px; */
+  grid-area: c;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  align-content: center;
 }
 
-.label {
-
+.signup-form {
+    background-color: yellow;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    /* place-items: start center; */
 }
 
-.border {
-
+label, 
+input,
+select {
+    padding: 20px;
+    margin: 10px;
 }
-/* #b3b3b3 grayish
-   #ff7f00 blue
-*/
 
+label {
+    grid-column: 1 / 2;
+}
 
 input {
+    grid-column: 1 / -1;
     border: none;
     border-bottom: 2px solid #b3b3b3;
 }
@@ -26,4 +41,8 @@ input:focus {
 
 input[type=submit] {
     cursor: pointer;
+}
+
+.submit-button {
+    width: 25%;
 }

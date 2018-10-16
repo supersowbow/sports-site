@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 import './signup.css';
 
@@ -95,57 +95,61 @@ class SignupForm extends Component {
       // Handle form submit
       handleFormSubmit = (e) => {
         e.preventDefault();
-    
-        console.log("submit button worked...");
-        console.log(this.state.formData);
+
+        // POST request via fetch
+        const FORM_DATA = {...this.state.formData};
+        console.log(FORM_DATA);
+        console.log('BITCH');
+
+        let postData = (url = `http:localhost:8080/form`, data = {...FORM_DATA}) => {
+            return fetch(url, {
+                method: "POST", // *GET, POST, PUT, DELETE, etc.
+                mode: "cors", // no-cors, cors, *same-origin
+                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: "same-origin", // include, same-origin, *omit
+                headers: {
+                    "Content-Type": "application/json; charset=utf-8",
+                },
+                redirect: "follow", // manual, *follow, error
+                referrer: "no-referrer", // no-referrer, *client
+                body: JSON.stringify(data), // body data type must match "Content-Type" header
+            })
+            .then(response => response.json()); // parses response to JSON
+        };
+
+        // axios.post('/form', {
+        //     guardian_name: data.guard_name,
+        //     guardian_phone: data.guard_phone,
+        //     guardian_email: data.guard_email,
+        //     child_name: data.child_name,
+        //     child_age: data.age,
+        //     child_shirt_size: data.shirt_size
+        // }).then((response) => {
+        //     console.log(response.data.json());
+        // }).catch((error) => {
+        //     console.log(`Error:  ${error}`);
+        // });
       }
 
       // Send form data to server via POST request
-      componentDidUpdate(prevProps) {
-          if (
-              this.state.guard_name !== prevProps.guard_name &&
-              this.state.guard_email !== prevProps.guard_email &&
-              this.state.guard_phone !== prevProps.guard_phone &&
-              this.state.child_name !== prevProps.child_name &&
-              this.state.age !== prevProps.age &&
-              this.state.shirt_size !== prevProps.shirt_size
-          ) {
+    //   componentDidUpdate(prevProps) {
+    //       if (
+    //           this.state.guard_name !== prevProps.guard_name &&
+    //           this.state.guard_email !== prevProps.guard_email &&
+    //           this.state.guard_phone !== prevProps.guard_phone &&
+    //           this.state.child_name !== prevProps.child_name &&
+    //           this.state.age !== prevProps.age &&
+    //           this.state.shirt_size !== prevProps.shirt_size
+    //       ) {
 
-              // POST request via axios
-              const data = {...this.state.formData};
-
-              axios.post('http://localhost:8080/form', {
-                  guardian_name: data.guard_name,
-                  guardian_phone: data.guard_phone,
-                  guardian_email: data.guard_email,
-                  child_name: data.child_name,
-                  child_age: data.age,
-                  child_shirt_size: data.shirt_size
-              }).then((response) => {
-                  console.log(response.data.json());
-              }).catch((error) => {
-                  console.log(error);
-              })
-
-
-              axios.post('/user', {
-                firstName: 'Fred',
-                lastName: 'Flintstone'
-              })
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
               
-          }
-      }
+    //       }
+    //   }
 
     render() {
         return (
             <div className="signup-container">
-                <form 
+                <form
                       onSubmit={this.handleFormSubmit}
                       className="signup-form">
         

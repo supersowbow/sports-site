@@ -2,12 +2,16 @@ const express = require('express');
 
 const router = express.Router();
 
-// router.use((req, res, next) => {
-//     console.log("This is the router.use shit");
-//     next();
-// });
+// route:  GET @ /form
+// descript:  homepage
+// access:  PRIVATE
+router.get('/', (req, res) => {
+    res.send("AYYYE, bitch!");
+});
 
-// process the form (POST http://localhost:5000/form)
+// route:  POST @ /form
+// descript:  process the form data and save it in db
+// access:  PRIVATE
 router.post('/form', (req, res) => {
     res.send("Thanks for the submission, bitch!");
     console.log(req.body);

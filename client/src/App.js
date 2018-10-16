@@ -8,11 +8,7 @@ import './App.css';
 class App extends Component {
   // create state
   state = {
-<<<<<<< HEAD
-    
-=======
       numOfKids: 1,
->>>>>>> 03ae10df9341a19c6968329bebf04d6ef331bc79
   }
 
   // create a click event handler for the burger button

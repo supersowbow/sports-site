@@ -1,39 +1,5 @@
 .signup-container {
   /* border: solid black 2px; */
-<<<<<<< HEAD
-  grid-area: c;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  align-content: center;
-}
-
-.signup-form {
-    background-color: yellow;
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    /* place-items: start center; */
-}
-
-label, 
-input,
-select {
-    padding: 20px;
-    margin: 10px;
-}
-
-label {
-    grid-column: 1 / 2;
-}
-
-input {
-    grid-column: 1 / -1;
-    border: none;
-    border-bottom: 2px solid #b3b3b3;
-=======
   /* grid-column: 2 / 11; */
   grid-area: c;
   place-self: center;
@@ -92,7 +58,6 @@ input:focus,
 input:valid {
   border-bottom: 2px solid #ff7f00;
   outline: none;
->>>>>>> 03ae10df9341a19c6968329bebf04d6ef331bc79
 }
 
 input:focus + label,

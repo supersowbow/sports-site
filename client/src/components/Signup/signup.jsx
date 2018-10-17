@@ -14,127 +14,123 @@ class SignupForm extends Component {
             child_name: "",
             age: "",
             shirt_size: ""
-          },
+        },
         ageValue: "age",
         shirtValue: "shirt",
     }
 
     /* The handleChange event handlers will do the following:
-        1.  Store the user input, 
-        2.  validate the user input 
+        1.  Store the user input
+        2.  Validate the user input 
         3.  Update corresponding formData object value within state
     */
     handleGuard_Name_Change = (e) => {
         let user_input = e.target.value;
-        let FormData = {...this.state.formData}
+        let FormData = {...this.state.formData};
 
         FormData.guard_name = user_input;
 
         this.setState({
             formData: FormData,
         });
-      }
+    }
     
-      handleGuard_Email_Change = (e) => {
-          let user_input = e.target.value;
-          let FormData = {...this.state.formData}
+    handleGuard_Email_Change = (e) => {
+        let user_input = e.target.value;
+        let FormData = {...this.state.formData};
 
-          FormData.guard_email = user_input;
+        FormData.guard_email = user_input;
 
-          this.setState({
-              formData: FormData,
-          });
-      }
+        this.setState({
+            formData: FormData,
+        });
+    }
     
-      handleGuard_Phone_Change = (e) => {
-          let user_input = e.target.value;
-          let FormData = {...this.state.formData}
+    handleGuard_Phone_Change = (e) => {
+        let user_input = e.target.value;
+        let FormData = {...this.state.formData};
 
-          FormData.guard_phone = user_input;
+        FormData.guard_phone = user_input;
 
-          this.setState({
-              formData: FormData,
-          });
-      }
+        this.setState({
+            formData: FormData,
+        });
+    }
     
-      handleChild_Name_Change = (e) => {
-          let user_input = e.target.value;
-          let FormData = {...this.state.formData}
+    handleChild_Name_Change = (e) => {
+        let user_input = e.target.value;
+        let FormData = {...this.state.formData};
 
-          FormData.child_name = user_input;
+        FormData.child_name = user_input;
 
-          this.setState({
-              formData: FormData,
-          });
-      }
-      // End of handleChange event handlers
+        this.setState({
+            formData: FormData,
+        });
+    }
+    // End of handleChange event handlers
 
-      // Event handlers for select tags
-      handleAgeChange = (e) => {
-          let user_input = e.target.value;
-          let FormData = {...this.state.formData}
+    // Event handlers for select tags
+    handleAgeChange = (e) => {
+        let user_input = e.target.value;
+        let FormData = {...this.state.formData};
 
-          FormData.age = user_input;
+        FormData.age = user_input;
 
-          this.setState({
-              formData: FormData,
-              ageValue: user_input, // Updates the select tag value
-          });
-      }
+        this.setState({
+            formData: FormData,
+            ageValue: user_input, // Updates the select tag value
+        });
+    }
 
-      handleShirtSizeChange = (e) => {
-          let user_input = e.target.value;
-          let FormData = {...this.state.formData}
+    handleShirtSizeChange = (e) => {
+        let user_input = e.target.value;
+        let FormData = {...this.state.formData};
 
-          FormData.shirt_size = user_input;
+        FormData.shirt_size = user_input;
 
-          this.setState({
+        this.setState({
             formData: FormData,
             shirtValue: user_input, // Updates the select tag value
-          });
-      }
+        });
+    }
 
-      // Handle form submit
-      handleFormSubmit = (e) => {
+    // Handle form submit
+    handleFormSubmit = (e) => {
         e.preventDefault();
 
-        // POST request via fetch
+        //POST request to http://localhost:8080 via fetch
         const FORM_DATA = {...this.state.formData};
-        console.log(FORM_DATA);
-        console.log('BITCH');
+        console.log(`This is form data from client:  ${JSON.stringify(FORM_DATA)}`);
+        const url = 'http://localhost:8080/form';
 
-        // FIX THIS:  POST REQUEST!!!!
-        let postData = (url = `http:localhost:8080/form`, data = {...FORM_DATA}) => {
-            return fetch(url, {
-                method: "POST", // *GET, POST, PUT, DELETE, etc.
-                mode: "cors", // no-cors, cors, *same-origin
-                cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-                credentials: "same-origin", // include, same-origin, *omit
-                headers: {
-                    "Content-Type": "application/json; charset=utf-8",
-                },
-                redirect: "follow", // manual, *follow, error
-                referrer: "no-referrer", // no-referrer, *client
-                body: JSON.stringify(data), // body data type must match "Content-Type" header
-            })
-            .then(response => response.json()); // parses response to JSON
-        };
+        fetch(url, {
+            method: "POST",
+            mode: "cors",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: JSON.stringify(FORM_DATA)
+            //body: FORM_DATA
+        })
+        .then((response) => {
+            response.json()
+            // display response?
+            // console.log(response);
+            // response = JSON.stringify(response);
+            // console.log(`Data from the server:  ${response}`);
+        })
+        .then((data) => {
+            // do something with your data
+            console.log(`Data from the server:  ${data}`);
+        })
+        // Error handler 
+        .catch((err) => {
+            console.log(err);
+        });
+    }
 
-        // axios.post('/form', {
-        //     guardian_name: data.guard_name,
-        //     guardian_phone: data.guard_phone,
-        //     guardian_email: data.guard_email,
-        //     child_name: data.child_name,
-        //     child_age: data.age,
-        //     child_shirt_size: data.shirt_size
-        // }).then((response) => {
-        //     console.log(response.data.json());
-        // }).catch((error) => {
-        //     console.log(`Error:  ${error}`);
-        // });
-      }
-
-      // Send form data to server via POST request
+    // INPUT VALIDATION
     //   componentDidUpdate(prevProps) {
     //       if (
     //           this.state.guard_name !== prevProps.guard_name &&
@@ -145,9 +141,7 @@ class SignupForm extends Component {
     //           this.state.shirt_size !== prevProps.shirt_size
     //       ) {
 
-              
     //       }
-    //   }
 
     render() {
         return (
@@ -157,7 +151,7 @@ class SignupForm extends Component {
                     <h3>To sign up for the camp, please fill out these details:</h3>
                 </div>
                 <form
-                    method="post"
+                    method="POST"
                     onSubmit={this.handleFormSubmit}
                     className="signup-form">
 

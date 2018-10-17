@@ -103,6 +103,7 @@ class SignupForm extends Component {
         console.log(FORM_DATA);
         console.log('BITCH');
 
+        // FIX THIS:  POST REQUEST!!!!
         let postData = (url = `http:localhost:8080/form`, data = {...FORM_DATA}) => {
             return fetch(url, {
                 method: "POST", // *GET, POST, PUT, DELETE, etc.
@@ -151,77 +152,69 @@ class SignupForm extends Component {
     render() {
         return (
             <div className="signup-container">
+                <div className="form-header">
+                    <h1>Sign Up!</h1>
+                    <h3>To sign up for the camp, please fill out these details:</h3>
+                </div>
                 <form
-                      onSubmit={this.handleFormSubmit}
-                      className="signup-form">
-        
-                    <div>
-                        <label htmlFor="guardian_name">Guardian's Full Name</label>
+                    method="post"
+                    onSubmit={this.handleFormSubmit}
+                    className="signup-form">
+
+                        <div className="form-elements">
+                            <div className="name">
+                                <input required
+                                    type="text"
+                                    id="guardian_name"
+                                    name="guardian_name"
+                                    onChange={this.handleGuard_Name_Change}/>
+                                <label htmlFor="guardian_name">
+                                    Guardian's Full Name
+                                </label>
+                            </div>
+
+                            <div className="email">
+                                <input required
+                                    type="email"
+                                    id="guardian_email"
+                                    name="guardian_email"
+                                    onChange={this.handleGuard_Email_Change}/>
+                                <label htmlFor="guardian_email">
+                                    Guardian's Email
+                                </label>
+                            </div>
+
+                            <div className="number">
+                                <input required
+                                    type="text"
+                                    id="phone-number"
+                                    name="phone-number"
+                                    onChange={this.handleGuard_Phone_Change}/>
+                                <label htmlFor="phone-number">
+                                    Guardian's Phone Number
+                                </label>
+                            </div>
+
+                            <ul className="child-list">
+                                <li>
+                                    <Child handleChildChange={this.handleChild_Name_Change}
+                                        handleAgeChange={this.handleAgeChange}
+                                        ageValue={this.state.ageValue}
+                                        handleShirtSizeChange={this.handleShirtSizeChange}
+                                        shirtValue={this.state.shirtValue}/>
+                                </li>
+                            </ul>
+
                         <input required
-                               type="text"
-                               name="guardian_name"
-                               //value={this.state.formData.guard_name}
-                               onChange={this.handleGuard_Name_Change}
-                               placeholder=""/>
-                    </div>
-        
-                    <div>
-                        <label htmlFor="guardian_email">Guardian's Email</label>
-                        <input required
-                               type="email"
-                               name="guardian_email"
-                               //value={this.state.formData.guard_emai}
-                               onChange={this.handleGuard_Email_Change}
-                               placeholder="Email"/>
-                    </div>
-        
-                    <div>
-                        <label htmlFor="phone-number">Guardian's Phone Number</label>
-                        <input required
-                               type="text"
-                               name="phone-number"
-                               //value={this.state.formData.guard_phone}
-                               onChange={this.handleGuard_Phone_Change}
-                               placeholder="555-555-5555"/>
-                    </div>
-        
-                    <div>
-                        <label htmlFor="child_name">Child's Full Name</label>
-                        <input required
-                               type="text"
-                               name="child_name"
-                               //value={this.state.formData.child_name}
-                               onChange={this.handleChild_Name_Change}
-                               placeholder="Child's Full Name"/>
-                    </div>
-        
-                    <select name="ages"
-                            value={this.state.ageValue}
-                            onChange={this.handleAgeChange}>
-                        <option value="age" disabled >Age</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">9</option>
-                        <option value="11">9</option>
-                        <option value="12">9</option>
-                    </select>
-        
-                    <select name="shirt-sizes"
-                            value={this.state.shirtValue} 
-                            onChange={this.handleShirtSizeChange}>
-                        <option value="shirt" disabled>Shirt</option>
-                        <option value="small">S</option>
-                        <option value="medium">M</option>
-                        <option value="large">L</option>
-                    </select>
-        
-                    <input required
-                           type="submit"
-                           value="Submit"
-                           className="submit-button"/>
+                            type="submit"
+                            value="Submit"
+                            id="submit-button"
+                            name="submit_button"
+                            className="submit-button"/>
+                        </div>
                 </form>
             </div>
+            
           );
 
     }

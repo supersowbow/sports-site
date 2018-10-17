@@ -1,6 +1,5 @@
 {
     "ignore": [ 
-      "routes/",
       "/node_modules",
       ".gitignore"
     ]

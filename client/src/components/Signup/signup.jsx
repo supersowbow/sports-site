@@ -101,7 +101,7 @@ class SignupForm extends Component {
         //POST request to http://localhost:8080 via fetch
         const FORM_DATA = {...this.state.formData};
         console.log(`This is form data from client:  ${JSON.stringify(FORM_DATA)}`);
-        const url = 'http://localhost:8080/form';
+        const url = 'http://localhost:3005/form';
 
         fetch(url, {
             method: "POST",

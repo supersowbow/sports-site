@@ -2,15 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const app = express();
 const router = express.Router();
-
-// Bodyparser Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-// create application/x-www-form-urlencoded parser
-//const urlencodedParser = bodyParser.urlencoded({ extended: true });
-
 
 // Config for CORS
 const corsOptions = {
@@ -18,6 +10,13 @@ const corsOptions = {
     optionsSuccessStatus: 200,
     method: 'POST'
 };
+
+// Log each request to the console
+router.use((req, res, next) => {
+    console.log(req.method, req.url);
+    next();
+});
+
 /* ***********************ROUTES*********************** */
 
 // route:  GET @ /form
@@ -32,16 +31,9 @@ router.get('/', (req, res) => {
 // access:  PRIVATE
 // misc:  enable cors
 router.post('/form', cors(corsOptions), (req, res) => {
-    console.log(res.body);
-    console.log(`Response Body:  ${res}`);
-    res.end();
+    const reqBody = JSON.stringify(req.body);
+    console.log(`Request Body:  ${reqBody}`);
 });
 /* *******************END OF ROUTES************************/
-
-/*  Something for nodemon; leave it here.
-    Without the line below, nodemon will produce this statement:
-    "[nodemon] clean exit - waiting for changes before restart"
-*/
-process.on('SIGUSR2', () => { process.exit(0); });
 
 module.exports = router;

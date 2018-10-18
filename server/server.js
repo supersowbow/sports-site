@@ -1,28 +1,23 @@
 const express = require('express');
-const router = require('./routes/routes.js');
 const bodyParser = require('body-parser');
+const router = require('./routes/routes.js');
 
 const app = express();
 
+// Bodyparser Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
 // Enable CORS Middleware
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    // Request origin(s) to allow
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+    // Request header(s) to allow
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    
+    // Request method(s) to allow
+    res.header('Access-Control-Allow-Methods', 'POST');
     next();
-});
-
-// Bodyparser Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-  
-// Error handler
-app.use(function(err, req, res) {
-    // set locals, only providing error in development
-    //err ? res.locals.message = err.message : null;
-    //res.locals.message = err.message;
-    //console.log(res.locals.message);
-    //res.locals.error = req.app.get('env') === 'development' ? err : {};
 });
 
 // Connect to Mongoose
@@ -37,5 +32,5 @@ app.use('/', router);
   
 const port = process.env.PORT || 3005;
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}!`);
+    console.log(`App listening on port ${port}!`);
 });

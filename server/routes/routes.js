@@ -33,6 +33,10 @@ router.get('/', (req, res) => {
 router.post('/form', cors(corsOptions), (req, res) => {
     const reqBody = JSON.stringify(req.body);
     console.log(`Request Body:  ${reqBody}`);
+    //bodyParser.json();
+    //console.log(`Request Body:  ${req.body}`);
+    res.json({msg: "thank you for your submission"});
+    //console.log(message);
 });
 /* *******************END OF ROUTES************************/
 

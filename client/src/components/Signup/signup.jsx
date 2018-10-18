@@ -89,7 +89,8 @@ class SignupForm extends Component {
 
         // POST request to http://localhost:8080 via fetch
         let FormData = {...this.state.form};
-        FormData = JSON.stringify(FormData, null, 4);
+        // FormData = JSON.stringify(FormData, null, 4); Beautified JSON
+        FormData = JSON.stringify(FormData);
         console.log(`Form data after stringify: ${FormData}`);
         
         const url = 'http://localhost:3005/form';
@@ -98,14 +99,13 @@ class SignupForm extends Component {
             method: "POST",
             mode: "cors",
             headers: {
-                //'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: FormData
         })
         .then((response) => {
             response.json()
-            JSON.parse(response);
         })
         .then((data) => {
             // do something with your data

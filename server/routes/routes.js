@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 
 const router = express.Router();
 
@@ -10,12 +9,6 @@ const corsOptions = {
     optionsSuccessStatus: 200,
     method: 'POST'
 };
-
-// Log each request to the console
-router.use((req, res, next) => {
-    console.log(req.method, req.url);
-    next();
-});
 
 /* ***********************ROUTES*********************** */
 
@@ -31,12 +24,14 @@ router.get('/', (req, res) => {
 // access:  PRIVATE
 // misc:  enable cors
 router.post('/form', cors(corsOptions), (req, res) => {
-    const reqBody = JSON.stringify(req.body);
-    console.log(`Request Body:  ${reqBody}`);
-    //bodyParser.json();
-    //console.log(`Request Body:  ${req.body}`);
-    res.json({msg: "thank you for your submission"});
-    //console.log(message);
+    console.log(req.body);
+    res.json({ user: 'tobi' });
+
+    res.format({
+        'application/json': function() {
+          res.send({ message: 'Thanks, from server...' });
+        }
+    });
 });
 /* *******************END OF ROUTES************************/
 

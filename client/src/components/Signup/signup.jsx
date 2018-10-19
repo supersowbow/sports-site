@@ -87,28 +87,40 @@ class SignupForm extends Component {
     handleFormSubmit = (e) => {
         e.preventDefault();
 
-        // POST request to http://localhost:8080 via fetch
+        // Encode Form Data and store encoded result in FormBody
         let FormData = {...this.state.form};
-        FormData = JSON.stringify(FormData, null, 4);
-        console.log(`Form data after stringify: ${FormData}`);
-        
-        const url = 'http://localhost:3005/form';
+        let FormBody = [];
 
+        for (let property in FormData) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(FormData[property]);
+            FormBody.push(`${encodedKey}=${encodedValue}`);
+        }
+
+        FormBody = FormBody.join("&");
+        // End of Encoding FormData
+
+        // POST request to http://localhost:8080 via fetch
+        const url = 'http://localhost:3005/form';
         fetch(url, {
             method: "POST",
             mode: "cors",
             headers: {
-                //'Accept': 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: FormData
+            body: FormBody
         })
         .then((response) => {
-            response.json()
-            JSON.parse(response);
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error('Something went wrong on api server!');
+            }
         })
         .then((data) => {
             // do something with your data
+            console.log(typeof(data));
             console.log(`Data from the server:  ${data}`);
         })
         // Error handler 

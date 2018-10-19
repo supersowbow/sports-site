@@ -1,13 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const router = require('./routes/routes.js');
 
 const app = express();
 
-// Bodyparser Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
+// Parser to support URL-encoded bodies
+app.use(express.urlencoded({
+    extended: true,
+}));
 
 // Enable CORS Middleware
 app.use((req, res, next) => {

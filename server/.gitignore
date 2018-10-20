@@ -1,1 +1,4 @@
 # Server
+/node_modules
+/keys
+nodemon.json

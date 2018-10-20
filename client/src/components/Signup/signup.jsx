@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 
 import Child from './child.jsx';
 
@@ -8,17 +7,22 @@ import './signup.css';
 class SignupForm extends Component {
     state = {
         form: {
-            guard_name: "cunt",
+            guard_name: "",
             guard_email: "",
             guard_phone: "",
-            child_name: "", // oreos: elaquent
-            age: "",
-            shirt_size: ""
+            children: [
+                {
+                    child_name: "",
+                    age: "",
+                    shirt_size: ""
+                }
+            ],
         },
         selectValues: {
             ageValue: "ages",
             shirtValue: "shirts"
-        }
+        },
+        index: 0
     }
     
     // Function to update the form field state with user input
@@ -55,9 +59,25 @@ class SignupForm extends Component {
     }
     
     handleChild_Name_Change = (e) => {
-        const c_name = "child_name";
-        let user_input = e.target.value;
-        this.updateFormState(c_name, user_input);
+        let ChildrenArray = [...this.state.form.children];
+
+        for (let i = 0; i < ChildrenArray.length; i++) {
+            const child_name = "child_name";
+
+            // Store child array and user input in a variable
+            let user_input = e.target.value;
+
+            // Access child_name key and update the value
+            ChildrenArray[i][child_name] = user_input;
+            
+            // Update the child's name field state
+            this.setState({
+                children: ChildrenArray,
+                index: i
+            });
+        }
+        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
+        console.log(this.state.index);
     }
     // End of handleChange event handlers
 
@@ -67,19 +87,43 @@ class SignupForm extends Component {
         3.  Update the select tag's form field s
     */
     handleAgeChange = (e) => {
-        let select_input = e.target.value;
-        let FormData = {...this.state.form};
+        // Store child array in a variable
+        let ChildrenArray = [...this.state.form.children];
 
-        FormData.age = select_input;
-        this.setState({form: FormData});
+        // USE MAP INSTEAD OF FOR LOOP SINCE ChildrenArray IS AN ARRAY
+        for (let i = 0; i < ChildrenArray.length; i++) {
+            // Store user input in a variable
+            let select_input = e.target.value;
+
+            // Access child age key and update the value
+            ChildrenArray[i].age = select_input;
+            
+            // Update the child's age field state
+            this.setState({
+                children: ChildrenArray,
+            });
+        }
+        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
     }
 
     handleShirtSizeChange = (e) => {
-        let select_input = e.target.value;
-        let FormData = {...this.state.form};
+        // Store child array in a variable
+        let ChildrenArray = [...this.state.form.children];
 
-        FormData.shirt_size = select_input;
-        this.setState({form: FormData});
+        // USE MAP INSTEAD OF FOR LOOP SINCE ChildrenArray IS AN ARRAY
+        for (let i = 0; i < ChildrenArray.length; i++) {
+            // Store user input in a variable
+            let select_input = e.target.value;
+
+            // Access child shirt_size key and update the value
+            ChildrenArray[i].shirt_size = select_input;
+            
+            // Update the child's name field state
+            this.setState({
+                children: ChildrenArray,
+            });
+        }
+        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
     }
     // End of event handlers for select tags
 
@@ -115,12 +159,14 @@ class SignupForm extends Component {
             if (response.status === 200) {
                 return response.json();
             } else {
+                console.log(response.status); // Remove in Production
                 throw new Error('Something went wrong on api server!');
             }
         })
         .then((data) => {
             // do something with your data
             console.log(typeof(data));
+            console.log(JSON.stringify(data));
             console.log(`Data from the server:  ${data}`);
         })
         // Error handler 
@@ -206,9 +252,7 @@ class SignupForm extends Component {
                         </div>
                 </form>
             </div>
-            
           );
-
     }
 }
 

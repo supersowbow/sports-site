@@ -4,9 +4,12 @@ const router = require('./routes/routes.js');
 const app = express();
 
 // Parser to support URL-encoded bodies
-app.use(express.urlencoded({
-    extended: true,
-}));
+// app.use(express.urlencoded({
+//     extended: true,
+//     inflate: true
+// }));
+
+app.use(express.json());
 
 // Enable CORS Middleware
 app.use((req, res, next) => {

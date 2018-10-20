@@ -22,7 +22,10 @@ class SignupForm extends Component {
             ageValue: "ages",
             shirtValue: "shirts"
         },
-        index: 0
+        index: 0,
+        nameCompleted: false,
+        ageCompleted: false,
+        shirtCompleted: false
     }
     
     // Function to update the form field state with user input
@@ -57,92 +60,76 @@ class SignupForm extends Component {
         let user_input = e.target.value;
         this.updateFormState(g_phone, user_input);
     }
+
+    // Handle Child Field Change
+    handleChildFieldChange = (e) => {
+        // Assign children array, user input, 
+        // selected html tag, and index in variables
+        let ChildrenArray = [...this.state.form.children];
+        let user_input = e.target.value;
+        let id = e.target.id;
+        let i = this.state.index;
     
-    handleChild_Name_Change = (e) => {
-        let ChildrenArray = [...this.state.form.children];
+        // loop thru array
+        ChildrenArray.forEach(() => {
+            // check to see which field is being updated
+            switch (id) {
+                case "child_name":
+                    // update the correct value in object
+                    ChildrenArray[i].child_name = user_input;
+                    // update the field's state
+                    this.setState({
+                        children: ChildrenArray,
+                        nameCompleted: true
+                    });
+                    break;
+    
+                case "age":
+                    // update the correct value in object
+                    ChildrenArray[i].age = user_input;
+                    // update the field's state
+                    this.setState({
+                        children: ChildrenArray,
+                        ageCompleted: true
+                    });
+                    break;
+                
+                case "shirt_size":
+                    // update the correct value in object
+                    ChildrenArray[i].shirt_size = user_input;
+                    // update the field's state
+                    this.setState({
+                        children: ChildrenArray,
+                        shirtCompleted: true
+                    });
+                    break;
 
-        for (let i = 0; i < ChildrenArray.length; i++) {
-            const child_name = "child_name";
+                default:
+                    break;
+            }
+        });
 
-            // Store child array and user input in a variable
-            let user_input = e.target.value;
-
-            // Access child_name key and update the value
-            ChildrenArray[i][child_name] = user_input;
-            
-            // Update the child's name field state
+        let nameCompleted = this.state.nameCompleted;
+        let ageCompleted = this.state.ageCompleted;
+        let shirtCompleted = this.state.shirtCompleted;
+    
+        if (nameCompleted && ageCompleted && shirtCompleted) {
+            // if all the fields are complete, increment the index
             this.setState({
-                children: ChildrenArray,
-                index: i
+                index: i++,
+                nameCompleted: false,
+                ageCompleted: false,
+                shirtCompleted: false
             });
         }
-        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
-        console.log(this.state.index);
     }
-    // End of handleChange event handlers
-
-    /* The event handlers for the select tags will do the following:
-        1.  Store user input in a variable
-        2.  Store form data in a variable
-        3.  Update the select tag's form field s
-    */
-    handleAgeChange = (e) => {
-        // Store child array in a variable
-        let ChildrenArray = [...this.state.form.children];
-
-        // USE MAP INSTEAD OF FOR LOOP SINCE ChildrenArray IS AN ARRAY
-        for (let i = 0; i < ChildrenArray.length; i++) {
-            // Store user input in a variable
-            let select_input = e.target.value;
-
-            // Access child age key and update the value
-            ChildrenArray[i].age = select_input;
-            
-            // Update the child's age field state
-            this.setState({
-                children: ChildrenArray,
-            });
-        }
-        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
-    }
-
-    handleShirtSizeChange = (e) => {
-        // Store child array in a variable
-        let ChildrenArray = [...this.state.form.children];
-
-        // USE MAP INSTEAD OF FOR LOOP SINCE ChildrenArray IS AN ARRAY
-        for (let i = 0; i < ChildrenArray.length; i++) {
-            // Store user input in a variable
-            let select_input = e.target.value;
-
-            // Access child shirt_size key and update the value
-            ChildrenArray[i].shirt_size = select_input;
-            
-            // Update the child's name field state
-            this.setState({
-                children: ChildrenArray,
-            });
-        }
-        console.log(`Updated: ${JSON.stringify(ChildrenArray)}`);
-    }
-    // End of event handlers for select tags
 
     // Handle form submit
     handleFormSubmit = (e) => {
         e.preventDefault();
 
-        // Encode Form Data and store encoded result in FormBody
         let FormData = {...this.state.form};
-        let FormBody = [];
-
-        for (let property in FormData) {
-            let encodedKey = encodeURIComponent(property);
-            let encodedValue = encodeURIComponent(FormData[property]);
-            FormBody.push(`${encodedKey}=${encodedValue}`);
-        }
-
-        FormBody = FormBody.join("&");
-        // End of Encoding FormData
+        let FormBody = JSON.stringify(FormData);
 
         // POST request to http://localhost:8080 via fetch
         const url = 'http://localhost:3005/form';
@@ -151,7 +138,7 @@ class SignupForm extends Component {
             mode: "cors",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/json'
             },
             body: FormBody
         })
@@ -164,9 +151,7 @@ class SignupForm extends Component {
             }
         })
         .then((data) => {
-            // do something with your data
-            console.log(typeof(data));
-            console.log(JSON.stringify(data));
+            data = JSON.stringify(data);
             console.log(`Data from the server:  ${data}`);
         })
         // Error handler 
@@ -174,19 +159,6 @@ class SignupForm extends Component {
             console.log(err);
         });
     }
-
-    // INPUT VALIDATION
-    //   componentDidUpdate(prevProps) {
-    //       if (
-    //           this.state.guard_name !== prevProps.guard_name &&
-    //           this.state.guard_email !== prevProps.guard_email &&
-    //           this.state.guard_phone !== prevProps.guard_phone &&
-    //           this.state.child_name !== prevProps.child_name &&
-    //           this.state.age !== prevProps.age &&
-    //           this.state.shirt_size !== prevProps.shirt_size
-    //       ) {
-
-    //       }
 
     render() {
         return (
@@ -236,11 +208,9 @@ class SignupForm extends Component {
 
                             <ul className="child-list">
                                 <li>
-                                    <Child handleChildChange={this.handleChild_Name_Change}
-                                        handleAgeChange={this.handleAgeChange}
+                                    <Child handleChildChange={this.handleChildFieldChange}
                                         ageValue={this.state.ageValue}
-                                        handleShirtSizeChange={this.handleShirtSizeChange}
-                                        shirtValue={this.state.shirtValue}/>
+                                        shirtValue={this.state.shirtValue} />
                                 </li>
                             </ul>
 

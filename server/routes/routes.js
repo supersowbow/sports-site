@@ -1,24 +1,24 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const keys = require('../keys/keys.js');
+//const keys = require('../keys/keys.js');
 
 const router = express.Router();
 
 // Connect to mongoose
-const user = keys.user();
-const dbp = keys.pss();
-mongoose.connect(
-    `mongodb://${user}:${dbp}@ds137003.mlab.com:37003/test-sports`,
-    { useNewUrlParser: true }
-);
+// const user = keys.user();
+// const dbp = keys.pss();
+// mongoose.connect(
+//     `mongodb://${user}:${dbp}@ds137003.mlab.com:37003/test-sports`,
+//     { useNewUrlParser: true }
+// );
 
-// Get notified for successfull db connection or connection error
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', () => {
-    console.log("WE CONNECTED HUNNY!!");
-});
+// // Get notified for successfull db connection or connection error
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', () => {
+//     console.log("WE CONNECTED HUNNY!!")
+// });
 
 
 // Config for CORS
@@ -42,15 +42,14 @@ router.get('/', (req, res) => {
 // access:  PRIVATE
 // misc:  enable cors
 router.post('/form', cors(corsOptions), (req, res) => {
-    // figure out how to send nested objects to server
     console.log(req.body);
-    console.log("Them kids: " + JSON.stringify(req.body.children));
+   
     // Store guardian data in object
     guard_data = {
         guard_name: req.body.guard_name,
         guard_email: req.body.guard_email,
         guard_phone: req.body.guard_phone,
-        children: [req.body.child_name],
+        children: [req.body.children],
     };
 
     // Store child data in object

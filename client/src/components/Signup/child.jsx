@@ -28,8 +28,9 @@ const Child = (props) => {
                 <select name="age" 
                         required 
                         className="ages"
+                        id="age"
                         value={props.ageValue}
-                        onChange={props.handleAgeChange}>
+                        onChange={props.handleChildChange}>
                     <option disabled>Age</option>
                     <option value="7">7</option>
                     <option value="8">8</option>
@@ -41,8 +42,9 @@ const Child = (props) => {
                 <select name="shirt-size" 
                         required 
                         className="shirt-sizes" 
+                        id="shirt_size"
                         value={props.shirtValue}
-                        onChange={props.handleShirtSizeChange}>
+                        onChange={props.handleChildChange}>
                     <option disabled>Size</option>
                     <option value="small">S</option>
                     <option value="medium">M</option>

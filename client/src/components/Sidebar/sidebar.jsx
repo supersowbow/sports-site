@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -10,46 +9,44 @@ const Sidebar = (props) => {
     <div id="Sidebar-Component" className="sidebar">
       {/* Menu Header */}
       <div className="sidebar-header">
-        <NavLink to='/' activeClassName='logo'>
+        <a href='/' className='logo'>
           <img
               src={require('../../img/sidebar_logo.png')}
               alt="Pat Gavin's Basketball Fundamentals Camp Logo"/>
-        </NavLink>
-        <a href="/"
+        </a>   
+        <span href="/"
            id="cross-button"
            className="cross"
            onClick={props.closeSidebar}>
           <i className="fa fa-times"></i>
-        </a>
+        </span>
       </div>
       {/* End of Menu Header */}
 
       <div className="hr"></div>
 
-      {/* React Router NavLinks */}
       <ul className="sidebar-links-container">
         <li className="home-sidebar-item"
             onClick={props.closeSidebar}>
-          <NavLink to='/'>Home</NavLink>
+          <a href='/'>Home</a>
         </li>
         <li className="about-sidebar-item"
             onClick={props.closeSidebar}>
-          <NavLink to='/about'>About</NavLink>
+          <a href='/about'>About</a>
         </li>
         <li className="signup-sidebar-item"
             onClick={props.closeSidebar}>
-          <NavLink to='/signup'>Sign Up</NavLink>
+          <a href='/signup'>Sign Up</a>
         </li>
         <li className="testimonial-sidebar-item"
             onClick={props.closeSidebar}>
-          <NavLink to='/testimonial'>Testimonial</NavLink>
+          <a href='/testimonial'>Testimonial</a>
         </li>
         <li className="articles-sidebar-item"
             onClick={props.closeSidebar}>
-          <NavLink to='/articles'>Articles</NavLink>
+          <a href='/articles'>Articles</a>
         </li>
       </ul>
-      {/* End of React Router NavLinks */}
     </div>
   );
 };

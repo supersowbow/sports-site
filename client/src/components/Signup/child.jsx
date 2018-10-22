@@ -2,7 +2,7 @@ import React from 'react';
 
 import './child.css';
 
-const Child = () => {
+const Child = (props) => {
     return (
         <div className="child-entry-container">
             <div className="note">
@@ -13,28 +13,39 @@ const Child = () => {
                 <button className="decrement">x</button>
             </div>
             <div className="child-field">
-                <input required
-                       id="child_name"
-                       type="text"
+                <input name="child_name"
+                       required
                        className="child-name"
-                       name="child_name"/>
+                       type="text"
+                       id="child_name"
+                       onChange={props.handleChildChange}/>
                 <label htmlFor="child_name"
                        className="child-label">
                        Child's Full Name
                 </label>
             </div>
             <div className="select-buttons-container">
-                <select name="age" required className="ages">
-                    <option selected disabled>Age</option>
-                    <option value="seven">7</option>
-                    <option value="eight">8</option>
-                    <option value="nine">9</option>
-                    <option value="ten">10</option>
-                    <option value="eleven">11</option>
-                    <option value="twelve">12</option>
+                <select name="age" 
+                        required 
+                        className="ages"
+                        id="age"
+                        value={props.ageValue}
+                        onChange={props.handleChildChange}>
+                    <option disabled>Age</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
                 </select>
-                    <select name="shirt-size" className="shirt-sizes" required>
-                    <option selected disabled>Size</option>
+                <select name="shirt-size" 
+                        required 
+                        className="shirt-sizes" 
+                        id="shirt_size"
+                        value={props.shirtValue}
+                        onChange={props.handleChildChange}>
+                    <option disabled>Size</option>
                     <option value="small">S</option>
                     <option value="medium">M</option>
                     <option value="large">L</option>

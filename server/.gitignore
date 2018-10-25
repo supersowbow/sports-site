@@ -1,4 +1,4 @@
 # Server
-/node_modules
+node_modules/
 /config
 nodemon.json

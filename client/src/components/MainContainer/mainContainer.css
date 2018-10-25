@@ -7,12 +7,15 @@
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 20% 45% 20%;
+  grid-template-rows: repeat(7, minmax(1fr, auto));
   grid-template-areas:
     "h h h h h h h h h h h h"
-    "c c c c c c c c c c c c"
-    "c c c c c c c c c c c c"
-    "c c c c c c c c c c c c"
+    ". o o o o o o o o o o ."
+    ". a a a a a a a a a a ."
+    ". t t t t t t t t t t ."
+    ". s s s s s s s s s s ."
+    ". r r r r r r r r r r ."
     "f f f f f f f f f f f f";
+  grid-gap: 20px;
 }
 /* END OF MAIN CONTAINER STYLES */

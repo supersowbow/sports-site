@@ -1,5 +1,6 @@
 .footer {
-  grid-column: 1 / -1;
-  grid-row: 10 / -1;
+  /* grid-column: 1 / -1;
+  grid-row: 10 / -1; */
+  grid-area: f;
   background-color: lightblue;
 }

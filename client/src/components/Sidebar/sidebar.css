@@ -1,5 +1,6 @@
 /* SIDEBAR CONTENT STYLES */
 .sidebar {
+  height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 4% 25% 4% 2% 4% 60%;

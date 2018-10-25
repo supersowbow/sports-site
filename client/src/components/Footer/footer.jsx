@@ -6,6 +6,20 @@ const Footer = () => {
   return (
     <div className="footer">
       <h1>FOOTER</h1>
+      <div>
+        <h5>Links</h5>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Testimonials</li>
+          <li>Signup</li>
+          <li>Articles</li>
+        </ul>
+      </div>
+      <div>
+        <h5>Connect</h5>
+        <p>Facebook</p>
+      </div>
     </div>
   );
 };

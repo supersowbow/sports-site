@@ -1,3 +1,4 @@
 .articles-content-container {
   /* border: solid black 2px; */
+  grid-area: r;
 }

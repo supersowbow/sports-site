@@ -1,31 +1,20 @@
 /* HOME CONTAINER STYLES */
 .home-content-container {
-
-    background-color:  #FFFFFF;
-    grid-area: c;
+    grid-area: o;
 
     display: grid;
-    grid-template-columns: repeat(auto-fillminmax(280px, 1fr));
-    grid-template-rows: 60% 40%;
-    object-fit: cover;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
 
-    background-image: url(../../img/homeLogo_280w.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-size:contain;
-    background-position:center;
+    margin-top: 86px;
 }
 
 /* END OF HOME CONTAINER STYLES */
 
-/* PITCH STYLES */
-.pitch {
-  grid-column: 1 / -1;
-  grid-row: 2 / -1;
-  place-self: center;
-
-  background-color: #ff7f00;
-  box-shadow: 10px 10px 5px -2px #888;
-  border-radius: 4px;
+/* HOME LOGO STYLES */
+.home-logo {
+  grid-area: hp;
+  max-width: 100%;
+  height: auto;
 }
-/* END OF PITCH STYLES */
+/* END OF HOME LOGO STYLES */

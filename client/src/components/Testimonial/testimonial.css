@@ -1,3 +1,15 @@
 .testimonial-content-container {
-  /* border: solid black 2px; */
+  grid-area: t;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 1em;
+}
+
+.message-list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-gap: 1em;
 }

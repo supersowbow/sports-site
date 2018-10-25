@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Child from './child.jsx';
+//import SubmissionModal from './submissionModal.jsx';
 
 import './signup.css';
 
@@ -25,7 +26,8 @@ class SignupForm extends Component {
         index: 0,
         nameCompleted: false,
         ageCompleted: false,
-        shirtCompleted: false
+        shirtCompleted: false,
+        submitted: false
     }
     
     // Function to update the form field state with user input
@@ -131,8 +133,8 @@ class SignupForm extends Component {
         let FormData = {...this.state.form};
         let FormBody = JSON.stringify(FormData);
 
-        // POST request to http://localhost:8080 via fetch
-        const url = 'http://localhost:3005/form';
+        // POST request to http://localhost:8080/form via fetch
+        const url = '/form';
         fetch(url, {
             method: "POST",
             mode: "cors",
@@ -162,7 +164,7 @@ class SignupForm extends Component {
 
     render() {
         return (
-            <div className="signup-container">
+            <div className="signup-container" id="signup">
                 <div className="form-header">
                     <h1>Sign Up!</h1>
                     <h3>To sign up for the camp, please fill out these details:</h3>

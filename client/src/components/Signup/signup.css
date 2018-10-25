@@ -1,16 +1,17 @@
 .signup-container {
   /* border: solid black 2px; */
   /* grid-column: 2 / 11; */
-  grid-area: c;
+  grid-area: s;
   place-self: center;
 
   /* background-color: ; */
   box-shadow: 0 0 8px #888888;
   padding: 10px 20px;
-  margin-top: 15px;
+  /* margin: 0 20px; */
+  /*margin-top: 15px;
   margin-right: 5px;
-  margin-bottom: 15px;
-  max-width: 80%;
+  margin-bottom: 15px; */
+  /* max-width: 90%; */
   border-radius: 4px;
 }
 

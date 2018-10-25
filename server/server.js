@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const router = require('./routes/routes.js');
 const config = require('./config/credentials.js');
@@ -6,6 +7,10 @@ const config = require('./config/credentials.js');
 const app = express();
 
 app.use(express.json());
+
+// Serve static files from the React app
+//app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static('../client/build'));
 
 // Enable CORS Middleware
 app.use((req, res, next) => {
@@ -33,8 +38,14 @@ db.once('open', () => {
     console.log("WE CONNECTED HUNNY!!")
 });
 
-// Enable routes
-app.use('/', router);
+// Enable routes and put all API endpoints under '/api'
+app.use('/api', router);
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 // Serve static assets if in production
 // if (process.env.NODE_ENV === 'production') {

@@ -1,12 +1,15 @@
 /* HEADER CONTAINER STYLES */
 .header-container {
-  grid-area: h;
+  /* grid-area: h; */
 
   display: grid;
   grid-template-columns: 10% 90%;
 
   background-color: #00275e;
   padding: 10px;
+  position: fixed;
+  z-index: 9000;
+  width: 100vw;
 }
 
 .hide {

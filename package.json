@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/supersowbow/sports-site/issues"
   },
-  "homepage": "https://github.com/supersowbow/sports-site#readme"
+  "homepage": "https://github.com/supersowbow/sports-site#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.1"
+  }
 }

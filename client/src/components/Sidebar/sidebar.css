@@ -75,7 +75,7 @@ ul li {
   place-self: center;
 }
 
-li a {
+ul li a {
   text-decoration: none;
   padding: 20px 30px;
   color: white;
@@ -84,5 +84,6 @@ li a {
 ul li a:hover {
     background-color: #00275e;
     color: #f8fafb;
+    text-decoration: none;
 }
 /* END OF SIDEBAR LINKS CONTAINER AND SIDEBAR LINKS */

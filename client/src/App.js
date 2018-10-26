@@ -6,19 +6,9 @@ import MainContainer from './components/MainContainer/mainContainer.jsx';
 import './App.css';
 
 class App extends Component {
-  // create state
+
   state = {
       numOfKids: 1,
-  }
-
-  // create a click event handler for the burger button
-  handleOpenSidebar = (e) => {
-    e.preventDefault();
-
-    // Adds a smooth transition to the Sidebar component while it's entering
-    document.getElementById("sidebar-container").style.width = "250px";
-    document.getElementById("mainContainer").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
   }
 
   handleCloseSidebar = (e) => {
@@ -54,8 +44,7 @@ class App extends Component {
       <div id="App-Component" className="App">
         <SidebarContainer
             closeSidebar={this.handleCloseSidebar} />
-        <MainContainer openSidebar={this.handleOpenSidebar}
-                       incrementButton={this.handleIncrement}
+        <MainContainer incrementButton={this.handleIncrement}
                        numberOfKids={this.state.numOfKids} />
       </div>
     );

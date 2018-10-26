@@ -87,3 +87,11 @@ ul li a:hover {
     text-decoration: none;
 }
 /* END OF SIDEBAR LINKS CONTAINER AND SIDEBAR LINKS */
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 900px) {
+  .cross {
+    display: none;
+  }
+}
+/* END OF MEDIA QUERIES */

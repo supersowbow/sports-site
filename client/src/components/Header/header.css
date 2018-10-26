@@ -73,5 +73,9 @@
   .header-title-container {
     grid-column: 1 / -1;
   }
+
+  .burger-button {
+    display: none;
+  }
 }
 /* END OF MEDIA QUERIES */

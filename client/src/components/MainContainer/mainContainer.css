@@ -19,3 +19,12 @@
   grid-gap: 20px;
 }
 /* END OF MAIN CONTAINER STYLES */
+
+/* MEDIA QUERIES */
+@media screen and (min-width: 900px) {
+  .main-container {
+    margin-left: 250px;
+  }
+}
+/* END OF MEDIA QUERIES */
+

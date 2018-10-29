@@ -31,6 +31,7 @@ class Testimonial extends Component {
         <ul className="message-list-container">
         {
           this.state.testimonials.map((testimonial, index) => {
+            console.log(index);
             return (
               <li key={index}>
                 <Message name={testimonial.name} 
@@ -41,7 +42,6 @@ class Testimonial extends Component {
           })
         }
         </ul>
-        <Message />
       </div>
     );
   }

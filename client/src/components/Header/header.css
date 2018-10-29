@@ -58,6 +58,12 @@
 /* END OF BURGER BUTTON STYLES */
 
 /* MEDIA QUERIES */
+@media screen and (max-width: 315px) {
+  .header-title-container {
+    grid-column: 2 / -1;
+  }
+}
+
 @media screen and (min-width: 500px) {
   .header-title-2 {
     font-size: 20px;

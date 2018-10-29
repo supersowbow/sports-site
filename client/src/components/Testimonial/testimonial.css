@@ -1,10 +1,12 @@
 .testimonial-content-container {
-  grid-area: t;
+  grid-area: t; /* from mainContainer.css */ 
 
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, auto);
   grid-gap: 1em;
+
+  margin-bottom: 8px;
 }
 
 .message-list-container {

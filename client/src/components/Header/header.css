@@ -1,9 +1,8 @@
 /* HEADER CONTAINER STYLES */
 .header-container {
-  /* grid-area: h; */
+  grid-area: h;
 
   display: grid;
-  /* grid-template-columns: 10% 90%; */
   grid-template-columns: repeat(12, 1fr);
 
   background-color: #00275e;
@@ -23,7 +22,6 @@
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   place-self: center;
-  margin-left: 10px;
 }
 
 .header-title-container h2 {
@@ -48,7 +46,7 @@
 /* BURGER BUTTON STYLES */
 .burger-button {
   grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-row: 1 / -1;
   align-self: start;
 }
 
@@ -67,16 +65,12 @@
 }
 
 @media screen and (min-width: 900px) {
-  .header-container {
-    grid-template-columns: 100%;
+  .burger-button {
+    display: none;
   }
 
   .header-title-container {
-    grid-column: 1 / -1;
-  }
-
-  .burger-button {
-    display: none;
+    grid-column: 3 / 8;
   }
 }
 /* END OF MEDIA QUERIES */

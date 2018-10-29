@@ -7,8 +7,7 @@ import './sidebarContainer.css';
 const SidebarContainer = (props) => {
   return (
     <div id="sidebar-container"
-         className="sidebar-container
-                    sidebar-closed">
+         className="sidebar-container">
          <Sidebar closeSidebar={props.closeSidebar}/>
     </div>
   );

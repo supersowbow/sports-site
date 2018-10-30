@@ -27,7 +27,49 @@ class SignupForm extends Component {
         nameCompleted: false,
         ageCompleted: false,
         shirtCompleted: false,
-        submitted: false
+        submitted: false,
+        childFields: 1
+    }
+
+    // Create list items depending on number within childFields' state
+    createChildListArr = () => {
+        let numOfChildren = this.state.childFields;
+        let childListArray = [];
+
+        if (numOfChildren < 4) {
+            for (let i = 0; i < numOfChildren; i++) {
+                childListArray.push(
+                    <li key={i}>
+                        <Child handleChildChange={this.handleChildFieldChange}
+                            ageValue={this.state.ageValue}
+                            shirtValue={this.state.shirtValue} />
+                    </li>
+                );
+            }
+            console.log(childListArray);
+            return childListArray;
+        } else {
+            console.log("too many chilren, chile");
+        }
+        
+        
+        // do {
+        //     if (numOfChildren < 4) {
+        //         // increment counter variable
+        //         i++;
+
+        //         // return li tags
+        //         return(
+        //             <li>
+        //                 <Child handleChildChange={this.handleChildFieldChange}
+        //                     ageValue={this.state.ageValue}
+        //                     shirtValue={this.state.shirtValue} />
+        //             </li>
+        //         ); 
+        //     } else {
+        //         console.log("too many kids, chile...");
+        //     }
+        // } while (i < numOfChildren);
     }
     
     // Function to update the form field state with user input
@@ -209,11 +251,9 @@ class SignupForm extends Component {
                             </div>
 
                             <ul className="child-list">
-                                <li>
-                                    <Child handleChildChange={this.handleChildFieldChange}
-                                        ageValue={this.state.ageValue}
-                                        shirtValue={this.state.shirtValue} />
-                                </li>
+                                {
+                                    this.createChildListArr()
+                                }
                             </ul>
 
                         <input required

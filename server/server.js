@@ -41,16 +41,13 @@ db.once('open', () => {
 // Enable routes and put all API endpoints under '/api'
 app.use('/api', router);
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+// ENABLE EXPRESS TO SERVE REACT BUILD FOLDER
 
-// Serve static assets if in production
+// Serve static assets if in production (This may not be needed since build folder is already being served above)
 // if (process.env.NODE_ENV === 'production') {
 //     // Set static folder
 //     app.use(express.static('client/build'));
+// Add this to use the build files?  path.join(__dirname+'/client/build/index.html')
   
 const port = process.env.PORT || 3005;
 app.listen(port, () => {

@@ -1,6 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-const { Child, Guardian } = require('../Models/Form.js');
+import express from 'express';
+import cors from 'cors';
+//import serverRenderer from '../middleware/serverRenderer.js';
+import { Child, Guardian } from '../Models/Form.js';
 
 const router = express.Router();
 
@@ -10,6 +11,14 @@ const corsOptions = {
     optionsSuccessStatus: 200,
     method: 'POST'
 };
+
+// Serve rendered page at root (/)
+//router.use('^/$', serverRenderer);
+
+// Serve static resources
+// router.use(express.static(
+//     path.resolve(__dirname, '..', '..', 'client/build')
+// ));
 
 /* ***********************ROUTES*********************** */
 
@@ -60,4 +69,4 @@ router.post('/form', cors(corsOptions), (req, res) => {
 });
 /* *******************END OF ROUTES************************/
 
-module.exports = router;
+export default router;

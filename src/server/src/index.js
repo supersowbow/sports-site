@@ -1,16 +1,45 @@
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const router = require('./routes/routes.js');
-const config = require('./config/credentials.js');
+import express from 'express';
+//import fs from 'fs';
+import path from 'path';
+import mongoose from 'mongoose';
+//import React, { Component } from 'react';
+//import ReactDOMServer from 'react-dom/server';
+import router from './routes/routes.js';
+import config from '../config/credentials.js';
+//import App from '../client/src/App.js';
+
+
+
+// function handleRender(req, res) {
+//     // Renders App component into an HTML string
+//     const html = ReactDOMServer.renderToString(<App />);
+  
+//     // Load contents of index.html
+//     fs.readFile('./index.html', 'utf8', function (err, data) {
+//       if (err) throw err;
+  
+//       // Inserts the rendered React HTML into our main div
+//       const doc = data.replace(/<div id="root"><\/div>/, `<div id="root">${html}</div>`);
+  
+//       // Sends the response back to the client
+//       res.send(doc);
+//     });
+// }
+  
 
 const app = express();
 
 app.use(express.json());
 
+// Serve built files with static files middleware
+//app.use('/build', express.static(path.join(__dirname, 'build')));
+
+// Serve requests with our handleRender function
+//app.get('*', handleRender);
+
 // Serve static files from the React app
 //app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(express.static('../client/build'));
+//app.use(express.static('../client/build'));
 
 // Enable CORS Middleware
 app.use((req, res, next) => {
@@ -39,7 +68,7 @@ db.once('open', () => {
 });
 
 // Enable routes and put all API endpoints under '/api'
-app.use('/api', router);
+app.use(router);
 
 // ENABLE EXPRESS TO SERVE REACT BUILD FOLDER
 

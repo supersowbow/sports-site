@@ -1,21 +1,21 @@
 ####################################
 # Root
 
-node_modules/
+dist
 
 ####################################
 # Client
 
-# dependencies
-/client/node_modules
+# Dependencies
+src/client/node_modules
 
-# testing
-/client/coverage
+# Testing
+src/client/coverage
 
-# production
-/client/build
+# Build
+src/client/build
 
-# misc
+# Misc
 .DS_Store
 .env.local
 .env.development.local
@@ -28,6 +28,8 @@ yarn-error.log*
 
 ####################################
 # Server
-/server/node_modules
-/server/config
-/server/nodemon.json
+src/server/node_modules
+src/server/config/credentials.js
+
+# Build
+src/server/build

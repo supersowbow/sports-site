@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "cd client && npm start",
-    "server": "cd server && npm run watch",
+    "client": "cd src/client && npm start",
+    "server": "cd src/ && npm run start:dev",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build:client": "cd client && npm run build",
-    "build:server": "cd server && npm run build",
+    "build:client": "cd src/client && npm run build",
+    "build:server": "cd src/server && npm run prod:build",
     "build:prod": "npm run build:client && cd .. && npm run build:server"
   },
   "repository": {

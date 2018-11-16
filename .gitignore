@@ -4,6 +4,7 @@
 dist
 env
 .vscode
+node_modules
 
 ####################################
 # Client
@@ -31,7 +32,6 @@ yarn-error.log*
 ####################################
 # Server
 src/server/node_modules
-src/server/config/credentials.js
 
 # Build
 src/server/build

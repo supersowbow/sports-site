@@ -5,17 +5,18 @@ import router from './routes/routes.js';
 
 import React, { Component } from 'react';
 import { renderToString } from 'react-dom/server';
-//import App from '../../client/src/App';
 
 const app = express();
 
 app.use(express.json());
 
+const reactBuild = path.join(__dirname, '../', '../', 'client/build')
+console.log(`APPPP:  ${reactBuild}`);
 // Serve requests with middleware Render function
 //app.get('*', handleRender);
 
 // Serve static files from the React app
-//app.use(express.static(path.join(__dirname, 'client/build')));
+//app.use(express.static(path.join(__dirname, '..', 'client/build')));
 //app.use(express.static('../client/build'));
 
 // Enable CORS Middleware

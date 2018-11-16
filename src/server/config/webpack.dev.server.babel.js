@@ -3,9 +3,5 @@ import common from './webpack.common.babel.js';
 
 export default merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
-    watch: true,
-    watchOptions: {
-        ignored: /node_modules/
-    }
+    devtool: 'inline-source-map'
 });

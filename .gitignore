@@ -2,7 +2,7 @@
 # Root
 
 dist
-env
+env/.env
 .vscode
 node_modules
 

@@ -1,6 +1,7 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
-//import serverRenderer from '../middleware/serverRenderer.js';
+import serverRenderer from '../middleware/serverRenderer.js';
 import { Child, Guardian } from '../Models/Form.js';
 
 const router = express.Router();
@@ -12,13 +13,13 @@ const corsOptions = {
     method: 'POST'
 };
 
-// Serve rendered page at root (/)
-//router.use('^/$', serverRenderer);
-
 // Serve static resources
-// router.use(express.static(
-//     path.resolve(__dirname, '..', '..', 'client/build')
-// ));
+router.use(express.static(
+    path.resolve(__dirname, '..', '..', '..', 'client/build')
+));
+
+// Serve rendered page at root (/)
+router.use('^/$', serverRenderer);
 
 /* ***********************ROUTES*********************** */
 

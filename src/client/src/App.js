@@ -7,10 +7,6 @@ import './App.css';
 
 class App extends Component {
 
-  state = {
-      numOfKids: 1,
-  }
-
   handleCloseSidebar = (e) => {
       e.preventDefault();
       
@@ -44,8 +40,7 @@ class App extends Component {
       <div id="App-Component" className="App">
         <SidebarContainer
             closeSidebar={this.handleCloseSidebar} />
-        <MainContainer incrementButton={this.handleIncrement}
-                       numberOfKids={this.state.numOfKids} />
+        <MainContainer incrementButton={this.handleIncrement} />
       </div>
     );
   }

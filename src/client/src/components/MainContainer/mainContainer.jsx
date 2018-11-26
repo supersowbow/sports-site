@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 
 import Header from '../Header/header.jsx';
 import Home from '../Home/home.jsx';
@@ -14,11 +15,11 @@ class MainContainer extends Component {
 
   // Before component mounts and before page unloads...
   // The webpage will be scrolled to the top
-  componentWillMount() {
-    window.onbeforeunload = () => {
-      window.scrollTo(0, 0);
-    };
-  }
+  // componentWillMount() {
+  //   window.onbeforeunload = () => {
+  //     window.scrollTo(0, 0);
+  //   };
+  // }
 
   // create a click event handler for the burger button
   handleOpenSidebar = (e) => {
@@ -34,11 +35,11 @@ class MainContainer extends Component {
     return (
       <div id="mainContainer" className="main-container toggle-closed">
         <Header openSidebar={this.handleOpenSidebar}/>
-        <Home />
-        <About />
-        <Testimonial />
-        <SignupForm />
-        <Articles />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/testimonial" component={Testimonial} />
+        <Route exact path="/signup" component={SignupForm} />
+        <Route exact path="/articles" component={Articles} />
         <Footer />
       </div>
     );

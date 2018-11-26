@@ -1,23 +1,13 @@
 import express from 'express';
 import path from 'path';
 import mongoose from 'mongoose';
-import router from './routes/routes.js';
-
-import React, { Component } from 'react';
-import { renderToString } from 'react-dom/server';
+import router from './routes/routes';
+import serverRenderer from './middleware/serverRenderer';
+import chalk from 'chalk';
 
 const app = express();
 
 app.use(express.json());
-
-const reactBuild = path.join(__dirname, '../', '../', 'client/build')
-console.log(`APPPP:  ${reactBuild}`);
-// Serve requests with middleware Render function
-//app.get('*', handleRender);
-
-// Serve static files from the React app
-//app.use(express.static(path.join(__dirname, '..', 'client/build')));
-//app.use(express.static('../client/build'));
 
 // Enable CORS Middleware
 app.use((req, res, next) => {
@@ -47,18 +37,31 @@ db.once('open', () => {
     console.log("WE CONNECTED HUNNY!!")
 });
 
+// Serve in PRODUCTION
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('build'));
+    app.get('*', (req, res) => {
+        res.sendFile('build/index.html');
+    });
+
+} else { 
+
+// Serve in DEVELOPMENT
+    const clientBuildPATH = path.resolve(__dirname, '../', '../', 'client/build');
+    // root (/) should always serve our server rendered page
+    // router.use('^/$', serverRenderer);
+    
+    // app.use(express.static(clientBuildPATH));
+    // app.use('^/$', serverRenderer);
+    console.log('DEVELOPMENT');
+}
+// Serve
+app.use('^/$', serverRenderer);
+
 // Enable routes and put all API endpoints under '/api'
 app.use(router);
-
-// ENABLE EXPRESS TO SERVE REACT BUILD FOLDER
-
-// Serve static assets if in production (This may not be needed since build folder is already being served above)
-// if (process.env.NODE_ENV === 'production') {
-//     // Set static folder
-//     app.use(express.static('client/build'));
-// Add this to use the build files?  path.join(__dirname+'/client/build/index.html')
   
 const port = process.env.PORT || 3005;
 app.listen(port, () => {
-    console.log(`App listening on port ${port}!`);
+    console.log(chalk.green(`App is running:  http://localhost:${port}`));
 });

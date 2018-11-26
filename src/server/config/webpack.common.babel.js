@@ -35,7 +35,7 @@ export default {
             path: env,
             safe: false,
             silent: false
-        })
+        }),
     ],
     module: {
         rules: [
@@ -43,9 +43,10 @@ export default {
                 test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                include: path.resolve(__dirname, 'src'),
-                query: {
-                    presets: ['@babel/preset-env', '@babel/preset-react']
+                options: {
+                    presets: ['@babel/preset-env',
+                              '@babel/react',{
+                              'plugins': ['@babel/plugin-proposal-class-properties']}]
                 }
             },
             {

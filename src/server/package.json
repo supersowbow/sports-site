@@ -7,8 +7,9 @@
     "dev:watch": "onchange -i -k 'config/**' 'src/**' '.babelrc' -- npm run dev:start",
     "prod:build": "webpack --config config/webpack.prod.server.babel.js",
     "dev:build": "webpack --config config/webpack.dev.server.babel.js",
-    "server:start": "node build/server.bundle.js",
-    "dev:start": "npm-run-all -s dev:build server:start"
+    "server:start": "node src/index.js",
+    "prod:start": "node public/server.bundle.js",
+    "dev:start": "npm-run-all -s dev:build prod:start"
   },
   "author": "",
   "license": "ISC",

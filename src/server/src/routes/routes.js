@@ -13,10 +13,23 @@ const corsOptions = {
     method: 'POST'
 };
 
-// Serve static resources
-router.use(express.static(
-    path.resolve(__dirname, '..', '..', '..', 'client/build')
-));
+const renderBuild = (buildFile) => {
+    return router.use(express.static(buildFile));
+}
+
+// Render static assets for PRODUCTION
+if (process.env.NODE_ENV === 'production') {
+    // Point to production build directory
+    const build = path.join(__dirname, 'build');
+    renderBuild(build);
+
+} else { 
+// Render static assets for DEVELOPMENT
+    // Point to cliient build directory
+    const build = path.resolve(__dirname, '..', '..', 'client/build');
+    console.log(`BUILD DEVELOPMENT:  ${build}`);
+    renderBuild(build);
+}
 
 // Serve rendered page at root (/)
 router.use('^/$', serverRenderer);

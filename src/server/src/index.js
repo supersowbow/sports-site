@@ -1,8 +1,6 @@
 import express from 'express';
-import path from 'path';
 import mongoose from 'mongoose';
 import router from './routes/routes';
-import serverRenderer from './middleware/serverRenderer';
 import chalk from 'chalk';
 
 const app = express();
@@ -36,27 +34,6 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
     console.log("WE CONNECTED HUNNY!!")
 });
-
-// Serve in PRODUCTION
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('build'));
-    app.get('*', (req, res) => {
-        res.sendFile('build/index.html');
-    });
-
-} else { 
-
-// Serve in DEVELOPMENT
-    const clientBuildPATH = path.resolve(__dirname, '../', '../', 'client/build');
-    // root (/) should always serve our server rendered page
-    // router.use('^/$', serverRenderer);
-    
-    // app.use(express.static(clientBuildPATH));
-    // app.use('^/$', serverRenderer);
-    console.log('DEVELOPMENT');
-}
-// Serve
-app.use('^/$', serverRenderer);
 
 // Enable routes and put all API endpoints under '/api'
 app.use(router);

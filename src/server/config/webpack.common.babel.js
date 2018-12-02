@@ -3,18 +3,17 @@ import nodeExternals from 'webpack-node-externals';
 import path from 'path';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 
-const build = path.resolve(__dirname, '../', 'build');
-const entryFile = path.resolve(__dirname, '../', 'src/index.js');
-const env = path.resolve(__dirname, '../', '../', '../', 'env', '.env');
+const publicDir = path.resolve(__dirname, '..', 'public');
+const entryFile = path.resolve(__dirname, '..', 'src/index.js');
+const env = path.resolve(__dirname, '..', '..', '..', 'env', '.env');
 
 export default {
     target: 'node',
     externals: [nodeExternals()],
-    context: path.resolve(__dirname, 'server'),
     entry: entryFile,
     output: {
-        path: build,
-        publicPath: build,
+        path: publicDir,
+        publicPath: publicDir,
         filename: 'server.bundle.js'
     },
     node: {
@@ -28,7 +27,7 @@ export default {
         extensions: ['*', '.js', '.jsx']
     },
     plugins: [
-        new CleanWebpackPlugin([build], {
+        new CleanWebpackPlugin([publicDir], {
             root: '/server/'
         }),
         new Dotenv({

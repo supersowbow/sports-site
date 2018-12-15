@@ -12,7 +12,7 @@
     "react-scripts": "1.1.5",
     "reactstrap": "^6.5.0"
   },
-  "homepage": "https://supersowbow.github.io/sports-site/",
+  "homepage": "",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

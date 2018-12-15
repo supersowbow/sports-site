@@ -19,7 +19,7 @@ export default (req, res, next) => {
             return res.status(500).send({ error: 'internal server error' });
         }
     
-        // Render the app as a string
+        // Render the App component as a string
         const html = ReactDOMServer.renderToString(
             <StaticRouter location={req.url} context={context}>
                 <App />
@@ -29,14 +29,13 @@ export default (req, res, next) => {
         const replacedHTML = data.replace(
             '<div id="root"></div>',
             `<div id="root">${html}</div>`
-        )
-
+        );
         return res.send(replacedHTML);
     }
     
     // Render in PRODUCTION
     if (process.env.NODE_ENV === 'production') {
-        // Point to the html file created by CRA's build tool
+        // Point to the html file in production build directory
         const filePath = path.resolve(__dirname, 'build/index.html');
 
         fs.readFile(filePath, 'utf8', (err, htmlData) => {
@@ -47,7 +46,7 @@ export default (req, res, next) => {
     // Render in DEVELOPMENT
         console.log(`eyeeeeeeeeehhhh`);
         // Point to the html file created by CRA's build tool
-        const filePath = path.resolve(__dirname, '..', '..', '..', 'client/build/index.html');
+        const filePath = path.resolve(__dirname, '..', '..', 'client/build/index.html');
         console.log(`FILEEEEE:  ${filePath}`)
         fs.readFile(filePath, 'utf8', (err, htmlData) => {
             render(err, htmlData);

@@ -7,24 +7,28 @@ const app = express();
 
 app.use(express.json());
 
-// Enable CORS Middleware
-app.use((req, res, next) => {
-    // Request origin(s) to allow
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-    // Request header(s) to allow
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    // Request method(s) to allow
-    res.header('Access-Control-Allow-Methods', 'POST');
-    next();
-});
+// Uncomment to enable CORS Middleware if front end and...
+// back end source code are on two different servers
 
-// Connect to Mongoose
+// app.use((req, res, next) => {
+//     // Request origin(s) to allow
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+//     // Request header(s) to allow
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     // Request method(s) to allow
+//     res.header('Access-Control-Allow-Methods', 'POST');
+//     next();
+// });
+
+// Store db environment variables into variables
 const uri = process.env.DB_HOST;
+const dbName = process.env.DB_NAME;
 const user = process.env.DB_USER;
 const pass = process.env.DB_PASS;
 
+// Connect to Mongoose
 mongoose.connect(
-    `mongodb://${user}:${pass}@${uri}`,
+    `mongodb+srv://${user}:${pass}@${uri}${dbName}?retryWrites=true`,
     { useNewUrlParser: true }
 );
 

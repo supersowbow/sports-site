@@ -1,4 +1,5 @@
 import React from 'react';
+import Testimonial from '../Testimonial/testimonial';
 
 import './about.css';
 
@@ -13,6 +14,7 @@ const About = () => {
         is hosted to help local youth practice the 
         basics of basketball.
       </h3>
+      <Testimonial />
     </div>
   );
 }

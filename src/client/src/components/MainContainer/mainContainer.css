@@ -1,30 +1,10 @@
 /* MAIN CONTAINER STYLES */
 .main-container {
-  transition: margin-left .5s;
-
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
+  grid-area: a; /* From the App component */
 
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(7, minmax(1fr, auto));
-  grid-template-areas:
-    "h h h h h h h h h h h h"
-    ". o o o o o o o o o o ."
-    ". a a a a a a a a a a ."
-    ". t t t t t t t t t t ."
-    ". s s s s s s s s s s ."
-    ". r r r r r r r r r r ."
-    "f f f f f f f f f f f f";
-  grid-gap: 20px;
+  grid-template-rows: auto;
 }
 /* END OF MAIN CONTAINER STYLES */
-
-/* MEDIA QUERIES */
-@media screen and (min-width: 900px) {
-  .main-container {
-    margin-left: 250px;
-  }
-}
-/* END OF MEDIA QUERIES */
 

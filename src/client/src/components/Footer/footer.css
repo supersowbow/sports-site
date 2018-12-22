@@ -1,8 +1,10 @@
 .footer {
-  grid-area: f;
-  display: grid;
-  grid-template-columns: repeat(2, 25vw);
-  grid-auto-rows: 50vw;
+  grid-area: f; /* From the App component */
 
-  background-color: 	#A8B1B8;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* grid-template-rows: 1fr; */
+  /* grid-auto-rows: 50vw; */
+
+  background-color:	#A8B1B8;
 }

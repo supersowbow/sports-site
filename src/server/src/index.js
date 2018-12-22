@@ -21,16 +21,19 @@ app.use(express.json());
 // });
 
 // Store db environment variables into variables
-const uri = process.env.DB_HOST;
+const host = process.env.DB_HOST;
 const dbName = process.env.DB_NAME;
 const user = process.env.DB_USER;
 const pass = process.env.DB_PASS;
 
+// Create mongodb's Atlas uri string
+const uri = `mongodb+srv://${user}:${pass}@${host}${dbName}`;
+
+console.log(`THIS IS THE URI:  ${uri}`);
+
 // Connect to Mongoose
-mongoose.connect(
-    `mongodb+srv://${user}:${pass}@${uri}${dbName}?retryWrites=true`,
-    { useNewUrlParser: true }
-);
+mongoose.connect(uri, { useNewUrlParser: true });
+// `mongodb+srv://${user}:${pass}@${host}${dbName}?retryWrites=true`,
 
 // Get notified for successfull db connection or connection error
 const db = mongoose.connection;

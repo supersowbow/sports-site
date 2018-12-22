@@ -1,5 +1,5 @@
 .testimonial-content-container {
-  grid-area: t; /* from mainContainer.css */ 
+  /* grid-area: t; /* from mainContainer.css */ 
 
   display: grid;
   grid-template-columns: 1fr;

@@ -1,0 +1,69 @@
+/* MENU CONTAINER STYLES */
+.menu-container {
+    grid-area: m; /* From the App component */
+    
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto;
+  
+    background-color: #F78009;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+    z-index: 9000;
+}
+
+.title a,
+.menu-links-container a {
+    color: #212529;
+}
+
+.title a:hover,
+.menu-links-container a:hover  {
+    text-decoration: none;
+    color: #212529;
+}
+/* END OF MENU CONTAINER STYLES */
+
+/* MENU TITLE STYLES */
+.title {
+    grid-column: 1 / 2;
+    align-self: center;
+    justify-self: start;
+    
+    margin: 0;
+}
+
+.title a {
+    font-size: 0.8em;
+}
+/* END OF MENU TITLE STYLES */
+
+/* MENU LINKS CONTAINER STYLES */ 
+.menu-links-container {
+    grid-column: 2 / -1;
+    justify-self: end;
+    align-self: end;
+
+    display: flex;
+    flex-direction: row;
+
+    margin: 0;
+    padding: 0;
+}
+/* END OF MENU LINKS CONTAINER STYLES */
+
+/* MENU LINKS STYLES */
+ul li {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 0 0.4em 0 0.4em;
+}
+
+li a {
+    font-size: 1em;
+}
+/* END OF MENU LINKS STYLES */

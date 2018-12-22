@@ -175,8 +175,8 @@ class SignupForm extends Component {
         let FormData = {...this.state.form};
         let FormBody = JSON.stringify(FormData);
 
-        // POST request to http://localhost:8080/form via fetch
-        const url = '/form';
+        // POST request to http://localhost:3005/api via fetch
+        const url = '/api';
         fetch(url, {
             method: "POST",
             mode: "cors",

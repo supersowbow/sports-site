@@ -1,7 +1,7 @@
 .signup-container {
   /* border: solid black 2px; */
   /* grid-column: 2 / 11; */
-  grid-area: s;
+  /* grid-area: s; */
   place-self: center;
 
   /* background-color: ; */

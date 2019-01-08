@@ -1,9 +1,8 @@
 /* HOME COMPONENT CONTAINER STYLES */
 .home-content-container {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 80% 20%;
-    grid-gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto auto;
 
     width: 100vw;
 }
@@ -12,6 +11,112 @@
 /* HEADER CONTAINER STYLES */
 .header-container {
   grid-column: 1 / -1;
-  background-color: #1C227C;
+  background-color: red;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }
+
+.header-title-1,
+.header-img,
+.header-title-2 {
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.ht1-item {
+  font-size: 4.2em;
+}
+
+.header-title-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; 
+}
+
 /* END OF HEADER CONTAINER STYLES */
+
+/* LEARN MORE CONTAINER STYLES */
+.learn-more-container {
+  grid-column: 1 / -1;
+  background-color: coral;
+  padding: 5px;
+
+  display: flex;
+  justify-content: center;
+}
+/* END OF LEARN MORE CONTAINER STYLES */
+
+/* LEARN MORE BUTTON STYLES */
+.button-link {
+  align-self: center;
+  border: 2px solid #1412AB;
+  border-radius: 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: red;
+  color: black;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.button-link:hover {
+  background-color: #1412AB;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  color: #F0893D;
+}
+/* END OF LEARN MORE BUTTON STYLES */
+
+/*=======================================================*/
+
+/* MEDIA QUERIES */
+/* Screens >= Medium Screen Sizes */
+@media (min-width: 600px) {
+  .header-container {
+    grid-column: 1 / -1;
+    background-color: red;
+  
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  
+  .header-title-1 {
+    order: 0;
+  }
+
+  .header-title-2 {
+    order: 1;
+  }
+
+  .header-img {
+    order: 2;
+    justify-self: flex-end;
+  }
+
+  .ht1-item {
+    font-size: 5.2em;
+  }
+
+  .header-title-2 {
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center; 
+  }
+
+  .ht2-item-1 {
+    order: 0;
+  }
+  .ht2-item-2 {
+    order: 0
+  }
+  .ht2-item-3 {
+    order: 1;
+  }
+}
+/* END OF MEDIA QUERIES */

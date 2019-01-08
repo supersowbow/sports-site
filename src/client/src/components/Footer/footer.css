@@ -7,4 +7,6 @@
   /* grid-auto-rows: 50vw; */
 
   background-color:	#A8B1B8;
+  /* position: sticky; */
+  bottom: 0;
 }

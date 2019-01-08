@@ -1,15 +1,21 @@
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   padding: 0;
   margin: 0;
+  outline: 0;
 }
 
 .App {
   height: 100vh;
-  /* width: 100vw; */
+  width: 100vw;
+  /* min-height: auto; */
+  /* max-height: auto; */
+  /* height: 100%; */
+  font-size: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 10% auto auto;
+  /* grid-template-rows: minmax(6%, 15%) auto auto; */
+  grid-template-rows: minmax(8%, 10%) minmax(61%, auto) 24%;
   grid-template-areas:
     "m m m m m m m m m m m m"
     "a a a a a a a a a a a a"

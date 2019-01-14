@@ -1,21 +1,23 @@
 /* HOME COMPONENT CONTAINER STYLES */
 .home-content-container {
+    grid-column: 1 / -1; /* From .main-container in mainContainer.css*/
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: auto auto;
-
-    width: 100vw;
 }
 /* END OF HOME CONTAINER STYLES */
 
 /* HEADER CONTAINER STYLES */
-.header-container {
-  grid-column: 1 / -1;
-  background-color: red;
-
+.header-container,
+.header-title-2 {
   display: flex;
   flex-direction: column;
+}
+
+.header-container {
+  grid-column: 1 / -1;
   align-content: center;
+  background-color: red;
 }
 
 .header-title-1,
@@ -30,8 +32,6 @@
 }
 
 .header-title-2 {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   text-align: center; 
 }
@@ -43,7 +43,6 @@
   grid-column: 1 / -1;
   background-color: coral;
   padding: 5px;
-
   display: flex;
   justify-content: center;
 }
@@ -75,48 +74,64 @@
 /* MEDIA QUERIES */
 /* Screens >= Medium Screen Sizes */
 @media (min-width: 600px) {
-  .header-container {
-    grid-column: 1 / -1;
-    background-color: red;
-  
+  .home-content-container {
+    grid-template-rows: 1fr auto;
+  }
+
+  .header-container,
+  .header-title-2 {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 2fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .header-container {
+    grid-template-areas:
+      "h1 h1"
+      "hi hi"
+      "h2 h2";
   }
   
   .header-title-1 {
-    order: 0;
-  }
-
-  .header-title-2 {
-    order: 1;
-  }
-
-  .header-img {
-    order: 2;
-    justify-self: flex-end;
+    grid-area: h1; /* From .header-container */
+    margin: 0;
   }
 
   .ht1-item {
-    font-size: 5.2em;
+    font-size: 7em;
+  }
+
+  .header-img {
+    grid-area: hi; /* From .header-container */
   }
 
   .header-title-2 {
-    justify-self: flex-start;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center; 
+    grid-area: h2; /* From .header-container */
+    margin: 0;
+    grid-template-areas: 
+      "ht21 ht22"
+      "ht23 ht23";
+  }
+
+  .ht2-item-1,
+  .ht2-item-2,
+  .ht2-item-3 {
+    font-size: 5em;
   }
 
   .ht2-item-1 {
-    order: 0;
+    grid-area: ht21; /* From .header-title-2 */
+    margin-left: 50px;
   }
+
   .ht2-item-2 {
-    order: 0
+    grid-area: ht22; /* From .header-title-2 */
   }
+
   .ht2-item-3 {
-    order: 1;
+    grid-area: ht23; /* From .header-title-2 */
   }
 }
 /* END OF MEDIA QUERIES */

@@ -35,17 +35,6 @@ const Home = () => {
         className="home-logo"
         alt="Pat Gavin's Basketball Fundamentals Camp Logo"/>
   </div>
-
-  CODE FOR LEARN MORE BUTTON
-  <Link to="/about">
-    <button>
-      Learn More
-    </button>
-  </Link>
-
-          <button className="button">
-          <Link to="/about" className="button-link">Learn More</Link>
-        </button>
 */
 
 export default Home;

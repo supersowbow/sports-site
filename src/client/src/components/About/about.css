@@ -1,0 +1,72 @@
+/* ABOUT CONTAINER STYLES */
+.about-container {
+    grid-column: 1 / -1; /* From .main-container in mainContainer.css*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+
+    background-color: lightseagreen;
+}
+
+.about-container > div {
+    margin-bottom: 20px;
+}
+/* ABOUT CONTAINER STYLES */
+
+/* INFO CONTAINER STYLES */
+.info-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: 
+        "at at"
+        "ai ai"
+        "am am";
+    grid-gap: 6px;
+    text-align: center;
+    padding: 5px;
+}
+
+.about-title {
+    grid-area: at;
+}
+
+.about-title h1 {
+    font-size: 5em;
+}
+
+.about-img-container {
+    grid-area: ai;
+}
+
+.about-img-container img {
+    display: block;
+    margin: 0 auto;
+}
+
+.about-message-container {
+    grid-area: am;
+    padding: 6px;
+}
+
+.about-message-container h1 {
+    font-size: 2em;
+}
+/* INFO CONTAINER STYLES */
+
+/* CLICK HERE CONTAINER STYLES */
+.click-here-container {
+    text-align: center;
+}
+
+.click-here-container h1 {
+    font-size: 2.3em;
+}
+
+.click-here-container a {
+    text-decoration: none;
+    color: #1412ab;
+}
+
+/* CLICK HERE CONTAINER STYLES */
